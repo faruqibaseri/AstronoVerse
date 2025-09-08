@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Learning Informative — Explore Latest Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="sun.css" />
+  <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/08/20/14/20250820142348-AANFIUSV.js" defer></script>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a href="index.html" class="brand" aria-label="AstronoVerse home">
+        <img class="brand__logo" src="1. HOMEPAGE/logo.png" alt="Brand Logo">
+      </a>
+
+<nav class="nav" aria-label="Main">
+  <a href="index.html" class="nav__link">Home</a>
+
+  <!-- Dropdown Explore -->
+  <div class="nav__item dropdown">
+    <a href="explore.html" class="nav__link">Explore ▾</a>
+    <div class="dropdown__menu">
+      <a href="moon.html" class="dropdown__link">Moon</a>
+      <a href="sun.html" class="dropdown__link">Sun</a>
+      <a href="star.html" class="dropdown__link">Star</a>
+    </div>
+  </div>
+
+  <a href="game_menu.html" class="nav__link">Games</a>
+  <a href="ebook.html" class="nav__link">E-Book</a>
+  <a href="about.html" class="nav__link">About Us</a>
+</nav>
+
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+  <span class="hamburger-line"></span>
+  <span class="hamburger-line"></span>
+  <span class="hamburger-line"></span>
+</button>
+    </div>
+
+    <nav id="mobileMenu" class="mobile" aria-label="Mobile">
+  <a href="index.html" class="mobile__link">Home</a>
+
+  <!-- Dropdown Explore for mobile -->
+  <div class="mobile__item">
+    <button class="mobile__link mobile__toggle">Explore ▾</button>
+    <div class="mobile__submenu">
+      <a href="moon.html" class="mobile__sublink">Moon</a>
+      <a href="sun.html" class="mobile__sublink">Sun</a>
+      <a href="star.html" class="mobile__sublink">Star</a>
+    </div>
+  </div>
+
+  <a href="game_menu.html" class="mobile__link">Games</a>
+  <a href="ebook.html" class="mobile__link">E-Book</a>
+  <a href="about.html" class="mobile__link">About Us</a>
+</nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1 class="reveal">Explore Latest Media</h1>
+        <p class="sub reveal delay-1">Discover events, podcasts, webinars, and live sessions curated for meaningful learning.</p>
+        <div class="searchbar reveal delay-2">
+          <input id="searchInput" type="text" placeholder="Search article, topic, or speaker…" aria-label="Search" />
+          <button id="searchBtn" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+      <div class="hero-visual reveal delay-3">
+        <img src="https://placehold.co/560x320" alt="Learning Illustration" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Tabs ===== -->
+  <section class="tabs-wrap">
+    <div class="container">
+      <div class="tabs" role="tablist" aria-label="Content categories">
+        <button class="tab is-active" role="tab" aria-selected="true" data-category="events">Events</button>
+        <button class="tab" role="tab" aria-selected="false" data-category="podcasts">Podcasts</button>
+        <button class="tab" role="tab" aria-selected="false" data-category="webinars">Webinars</button>
+        <button class="tab" role="tab" aria-selected="false" data-category="live">Live</button>
+        <span class="tab-ink" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Featured ===== -->
+  <section class="featured section">
+    <div class="container">
+      <article class="featured-card reveal">
+        <div class="media">
+          <a href="#" class="thumb hover-zoom" aria-label="Play featured video">
+            <img src="https://placehold.co/720x420" alt="Featured webinar thumbnail" />
+            <span class="play"></span>
+          </a>
+        </div>
+        <div class="content">
+          <span class="badge">Category</span>
+          <p class="meta">📅 12 Aug 2025 · ⏱ 60 minutes</p>
+          <h2>Featured Webinar: Building Better Study Habits</h2>
+          <p>Learn evidence-based techniques for retention and focus. Perfect for students, educators,
+            and lifelong learners seeking practical tools.</p>
+          <div class="cta-row">
+            <button class="btn btn-primary">Save my spot</button>
+            <button class="btn btn-ghost">Share</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Cards Grid ===== -->
+  <section class="section">
+    <div class="container">
+      <div id="cards" class="cards-grid reveal">
+        <!-- Cards injected by JS -->
+      </div>
+
+      <div class="center mt-20">
+        <button id="viewAll" class="btn btn-secondary">View all</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Qur'an Section ===== -->
+  <section class="quran section">
+    <div class="container">
+      <h3 class="reveal">Ayat al-Qur’an</h3>
+
+      <article class="q-card reveal delay-1">
+        <div class="q-arabic">
+          ﴿إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِأُولِي الْأَلْبَابِ﴾
+        </div>
+        <div class="q-meta">Ali ‘Imran 3:190</div>
+        <p class="q-translation">
+          “Indeed, in the creation of the heavens and the earth and the alternation of the night and the day
+          are signs for those of understanding.”
+        </p>
+      </article>
+
+      <article class="q-card reveal delay-2">
+        <div class="q-arabic">
+          ﴿وَقُل رَّبِّ زِدْنِي عِلْمًا﴾
+        </div>
+        <div class="q-meta">Taha 20:114</div>
+        <p class="q-translation">“And say, ‘My Lord, increase me in knowledge.’”</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Video Section ===== -->
+  <section class="video section">
+    <div class="container video-grid">
+      <div class="player reveal">
+        <div class="ratio">
+          <iframe
+            id="mainVideo"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Learning Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <aside class="playlist reveal delay-1">
+        <h4>Playlist</h4>
+        <ul id="playlist">
+          <li data-video="dQw4w9WgXcQ">
+            <img src="https://placehold.co/140x80" alt="">
+            <div>
+              <strong>Intro to Effective Learning</strong>
+              <span>8:21</span>
+            </div>
+          </li>
+          <li data-video="9bZkp7q19f0">
+            <img src="https://placehold.co/140x80" alt="">
+            <div>
+              <strong>Note-taking that Works</strong>
+              <span>6:02</span>
+            </div>
+          </li>
+          <li data-video="3JZ_D3ELwOQ">
+            <img src="https://placehold.co/140x80" alt="">
+            <div>
+              <strong>Build a Study System</strong>
+              <span>10:44</span>
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== Image Gallery ===== -->
+  <section class="gallery section">
+    <div class="container">
+      <h3 class="reveal" style="color: white;">Learning Moments</h3>
+      <div class="gallery-grid reveal delay-1">
+        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
+        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
+        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
+        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
+        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
+        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Newsletter CTA ===== -->
+  <section class="cta section">
+    <div class="container cta-box reveal">
+      <div>
+        <h3>Stay in the loop</h3>
+        <p>Get weekly highlights on events, webinars, and new learning media.</p>
+      </div>
+      <form id="subForm" class="cta-form" aria-label="Newsletter subscription">
+        <input type="email" placeholder="Your email" aria-label="Email" required />
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+        <span class="note" id="subNote" role="status" aria-live="polite"></span>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="faqs" class="footer">
+    <div class="wrap foot__top">
+      <div class="foot__brand">
+        <img class="foot__logo" src="1. HOMEPAGE/logo.png" alt="Brand Logo">
+      </div>
+      <div class="foot__social" aria-label="Social links">
+        <a href="#" class="ico"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+        <a href="#" class="ico"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+        <a href="#" class="ico"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="#" class="ico"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+        </div>
+
+       <nav class="foot__links" aria-label="Footer">
+        <a href="index.html">Home</a></i> 
+        <a href="explore.html">Explore</a>
+        <a href="game_menu.html">Games</a>
+        <a href="ebook.html">E-Book</a>
+        <a href="about.html">About Us</a>
+      </nav>
+      </div>
+    </div>
+
+    <div class="wrap foot__bottom">
+      <small>© <span id="year"></span> AstronoVerse. All rights reserved.</small></div>
+  </footer>
+
+  <button id="toTop" class="toTop" aria-label="Back to top">↑</button>
+
+  <script src="sun.js"></script>
+</body>
+</html>
