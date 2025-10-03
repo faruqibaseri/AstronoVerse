@@ -88,7 +88,7 @@ box-shadow:var(--shadow);transform: translateY(-5px);transform: scale(1.05);
     justify-content: center
 }
 
-.topbar{position:sticky; top:40px; z-index:40; background: rgba(255, 255, 255, 0.07);border-radius: 20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(6px);width: 80%;justify-self: center; justify-items: center;}
+.topbar{position:relative; top:40px; z-index:40; background: rgba(255, 255, 255, 0.07);border-radius: 20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(6px);width: 80%;justify-self: center; justify-items: center;}
 .topbar__inner{display:flex; align-items:center; justify-content:space-between; height: 100px; max-width: 1140px; width: 90%;}
 .brand{display:flex; align-items:center; gap:10px; font-weight:700; color:var(--ink)}
 .brand__logo {
@@ -460,7 +460,6 @@ box-shadow:var(--shadow);transform: translateY(-5px);transform: scale(1.05);
     order: -1;
     height: 350px;
   }
-  .topbar__inner{width: max-content;}
 }
 
 @media (max-width:600px) {
@@ -484,9 +483,9 @@ box-shadow:var(--shadow);transform: translateY(-5px);transform: scale(1.05);
     order: -1;
     height: 250px;
   }
-  .topbar__inner{width: max-content;}
+  .topbar__inner {width: max-content;}
 }
 
 @media (max-width: 344px) {
-  .topbar {width: max-content;
+  .topbar__inner {width: max-content;
   }}
