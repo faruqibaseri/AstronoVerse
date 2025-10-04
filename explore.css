@@ -396,14 +396,14 @@ box-shadow:var(--shadow);transform: translateY(-5px);transform: scale(1.05);
 }
 
 /* Footer */
-.footer{background:#f0f2f7; border-top:1px solid var(--line)}
+.footer{background:rgba(255, 255, 255, 0.1); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(20px);}
 .foot__top{display:grid; grid-template-columns:1.2fr 1fr 2fr; gap:20px;}
 .foot__brand{display:flex; align-items:center; gap:10px; justify-content: center;}
 .foot__logo{width:250px; height:auto; border-radius:10px; background:none;}
 .foot__social{display:flex; align-items:center}
-.foot__social .ico{border-radius:6px; background-color: transparent; color: rgb(85, 26, 139);}
+.foot__social .ico{border-radius:6px; background-color: transparent; color:#5b84ff;}
 .foot__links{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content: center; padding-bottom: 20px;}
-.foot__links a{color:#333; text-decoration:none}
+.foot__links a{color:#ededed; text-decoration:none}
 .foot__bottom{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:12px 12px; border-top:1px solid var(--line); justify-self: center;}
 .fa {font-size: 30px;}
 .ico, .ph-ico{width:28px; height:28px; border-radius:8px; background:#d3d8e7; margin:0 auto 6px}
