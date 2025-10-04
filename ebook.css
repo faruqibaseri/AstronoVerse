@@ -23,7 +23,7 @@ body {
 body {
   margin: 0;
   font: 16px/1.6 "Poppins", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  color: var(--ink);
+  color: white;
   background: var(--bg);
   box-sizing: border-box;
 }
@@ -34,7 +34,7 @@ body::before {
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: url("1. HOMEPAGE/photo/background.jpg") no-repeat center center / cover;
-  opacity: 80%; /* adjust transparency here */
+  opacity: 90%; /* adjust transparency here */
   z-index: -1; /* keeps it behind content */
 }
 
@@ -206,10 +206,11 @@ body::before {
 .container {
   max-width: 1140px;
   margin: 80px 20px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.05);
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
   animation: fadeIn 1s ease-in-out;
   justify-self: center;
 }
@@ -218,6 +219,7 @@ body::before {
 .title {
   font-size: 2rem;
   margin-bottom: 15px;
+  color: white;
 }
 
 /* Content */
@@ -228,7 +230,8 @@ body::before {
   margin-bottom: 20px;
   align-items: center;
   flex-direction: column;
-  grid-template-columns: 1fr 1fr
+  grid-template-columns: 1fr 1fr;
+  color: white;
 }
 
 .content .text {
@@ -252,6 +255,7 @@ body::before {
 /* Highlight Box */
 .highlight {
   background: #ffeaa7;
+  color: var(--bpPrimary-700);
   padding: 12px;
   margin: 15px 0;
   border-left: 5px solid #fdcb6e;
@@ -301,6 +305,7 @@ body.dark .date {
 
 .related-posts h2 {
   margin-bottom: 20px;
+  color: white;
 }
 
 .posts {
@@ -310,17 +315,22 @@ body.dark .date {
 }
 
 .post {
-  background: #fafafa;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
   padding: 15px;
   transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
   cursor: pointer;
 }
 
 .post:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.post a {
+color:var(--bpPrimary-200);
 }
 
 .post img {
@@ -345,69 +355,16 @@ body.dark .date {
 
 
 /* Footer */
-.footer {
-  background: #f0f2f7;
-  border-top: 1px solid var(--line);
-}
-
-.foot__top {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 2fr;
-  gap: 20px;
-}
-
-.foot__brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-}
-
-.foot__logo {
-  width: 250px;
-  height: auto;
-  border-radius: 10px;
-  background: none;
-}
-
-.foot__social {
-  display: flex;
-  align-items: center
-}
-
-.foot__social .ico {
-  border-radius: 6px;
-  background-color: transparent;
-  color: rgb(85, 26, 139);
-}
-
-.foot__links {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-bottom: 20px;
-}
-
-.foot__links a {
-  color: #333;
-  text-decoration: none
-}
-
-.foot__bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 12px 12px;
-  border-top: 1px solid var(--line);
-  justify-self: center;
-}
-
-.fa {
-  font-size: 30px;
-}
+.footer{background:rgba(255, 255, 255, 0.1); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(25px);}
+.foot__top{display:grid; grid-template-columns:1.2fr 1fr 2fr; gap:20px;}
+.foot__brand{display:flex; align-items:center; gap:10px; justify-content: center;}
+.foot__logo{width:250px; height:auto; border-radius:10px; background:none;}
+.foot__social{display:flex; align-items:center}
+.foot__social .ico{border-radius:6px; background-color: transparent; color:#5b84ff;}
+.foot__links{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content: center; padding-bottom: 20px;}
+.foot__links a{color:#ededed; text-decoration:none}
+.foot__bottom{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:12px 12px; border-top:1px solid var(--line); justify-self: center;}
+.fa {font-size: 30px;}
 
 .ico,
 .ph-ico {
