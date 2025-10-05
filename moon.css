@@ -46,12 +46,12 @@ img{display:block; max-width:100%; height:auto}
 .btn-secondary:hover{background:#f8fafc}
 .btn-ghost{background:#fff; border-color:var(--line); color:var(--ink)}
 .center{text-align:center}
-.mt-20{margin-top:20px}
+.mt-20{margin-top:40px}
 .mt-10{margin-top:10px}
 .muted{color:var(--muted)}
 
 /* Topbar */
-.topbar{position:sticky; top:40px; z-index:40; background: rgba(255, 255, 255, 0.1);border-radius: 20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(25px);width: 80%;justify-self: center; justify-items: center;}
+.topbar{position:relative; top:40px; z-index:40; background: rgba(255, 255, 255, 0.1);border-radius: 20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(25px);width: 80%;justify-self: center; justify-items: center;}
 .topbar__inner{display:flex; align-items:center; justify-content:space-between; height: 100px; max-width: 1140px; width: 90%;}
 .brand{display:flex; align-items:center; gap:10px; font-weight:700; color:var(--ink)}
 .brand__logo {
@@ -222,13 +222,13 @@ img{display:block; max-width:100%; height:auto}
 /* ========= Tabs */
 .tabs-wrap{height: 100px; align-content:center;}
 .tabs{
-  position:relative; display:flex; gap:10px; padding:12px 0; overflow: overlay;
+  position:relative; display:flex; gap:10px; padding:12px 0; overflow: overlay; margin-top:30px; place-content: center;
 }
 .tab{
   position:relative; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.07); border: none; backdrop-filter: blur(20px);
-  padding:.55rem 1rem; border-radius:999px; font-weight:700; cursor:pointer; transition:.25s; color: white;
+  padding:.55rem 1rem; border-radius:999px; font-weight:700; cursor:pointer; transition:.25s; color: white; height: 40px; width: 150px;
 }
-.tab.is-active{background:var(--bpPrimary-300); border-color:#cfe6ff}
+.tab.is-active{background:var(--bpPrimary-500); border-color:#cfe6ff}
 .tab:hover{transform:translateY(-1px)}
 .tab-ink{
   position:absolute; height:38px; border-radius:999px; background:rgba(99,153,255,.18);
