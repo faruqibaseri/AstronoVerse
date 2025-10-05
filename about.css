@@ -632,6 +632,12 @@ body::before {
   background-color: rgb(85, 26, 139);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.arch_contact_us_duplicate .button:hover {
+  transform: scale(1.02);
 }
 
 
@@ -646,6 +652,7 @@ body::before {
   border-radius: 5px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(25px);
+  color: white;
 }
 
 
@@ -653,6 +660,7 @@ body::before {
   .arch_contact_us_duplicate .text-blk.section-head {
     font-size: 55px;
     line-height: 60px;
+    padding-top:20px;
   }
 }
 
@@ -697,6 +705,8 @@ body::before {
   .arch_contact_us_duplicate .text-blk.section-head {
     font-size: 40px;
     line-height: 45px;
+    text-align: center;
+    padding-top: 20px;
   }
 
   .arch_contact_us_duplicate .input {
@@ -722,16 +732,6 @@ body::before {
     padding-top: 0px;
     padding-bottom: 0px;
   }
-
-  .arch_contact_us_duplicate .responsive-cell-block.wk-mobile-12.wk-desk-5.wk-tab-10.wk-ipadp-5 {
-    padding-top: 0px;
-    padding-right: 20px;
-    padding-bottom: 0px;
-    padding-left: 20px;
-  }
-
-
- 
 
   .arch_contact_us_duplicate .icon-block {
     width: 25px;
@@ -885,7 +885,7 @@ body {
   }
 
   .wk-tab-9 {
-    width: 75%;
+    width: 100%;
   }
 
   .wk-tab-10 {

@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
   <link rel="stylesheet" href="about.css" />
 </head>
@@ -82,7 +83,7 @@
           <img src="5. ABOUT US/photo/Faruqi.png" alt="Alex Grinfield">
         </div>
         <h3>Muhammad Faruqi<br> Baseri</h3>
-        <p class="role">programming guru</p>
+        <p class="role">Programming Guru</p>
         <div class="social-links">
           <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
@@ -96,7 +97,7 @@
           <img src="5. ABOUT US/photo/Amalia.png" alt="Ann Richmond">
         </div>
         <h3>Wan Nur Amalia <br> Wan Zaini</h3>
-        <p class="role">creative leader</p>
+        <p class="role">Creative Leader</p>
         <div class="social-links">
           <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
@@ -110,7 +111,7 @@
           <img src="5. ABOUT US/photo/Nafisah.png" alt="Jeffrey Brown">
         </div>
         <h3>Nurul Nafisah <br> Azmi</h3>
-        <p class="role">manager</p>
+        <p class="role">Manager</p>
         <div class="social-links">
           <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
@@ -261,14 +262,12 @@
           </p>
         </div>
         <div class="responsive-cell-block wk-ipadp-6 wk-mobile-12 wk-desk-5 wk-tab-9" id="i6df">
-          <div class="form-wrapper">
-            <input class="input input-element" name="Name" placeholder="Name">
-            <input class="input input-element" name="Email" placeholder="Email">
-            <textarea class="textinput input-element" placeholder="Message"></textarea>
-            <button class="button">
-              Send
-            </button>
-          </div>
+          <form class="form-wrapper" id="contact-us">
+            <input type="text" class="input input-element" name="name" id="name" placeholder="Name" required>
+            <input type="email" class="input input-element" name="email" id="email" placeholder="Email" required>
+            <textarea class="textinput input-element" id="message" placeholder="Message"></textarea required>
+            <button type="submit" class="button">Send</button>
+          </form>
         </div>
       </div>
     </div>
@@ -304,6 +303,36 @@
   <button id="toTop" class="toTop" aria-label="Back to top">↑</button>
 
   <script src="about.js"></script>
+
+ <script>
+    const { createClient } = supabase;
+    const SUPABASE_URL = "https://vosdeszexfquhrzrqtxh.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZvc2Rlc3pleGZxdWhyenJxdHhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk2NjA4OTcsImV4cCI6MjA3NTIzNjg5N30.MjH2e1vaxnOmW5GgcofDiEhpcmso4PbDE5PxTlk3b5w";
+
+    const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    document.getElementById("contact-us").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      const { error } = await db.from("contact_us").insert([
+        { name, email, message }
+      ]);
+
+      if (error) {
+        alert("Error: " + error.message);
+        console.error(error);
+      } else {
+        alert("We've received your message. Thank you!");
+        document.getElementById("contact-us").reset();
+      }
+    });
+  </script>
+
+
 </body>
 
 </html>
