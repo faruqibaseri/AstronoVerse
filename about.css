@@ -38,7 +38,7 @@ body::before {
 .wrap{max-width:1140px; margin:auto; padding:0 3%;}
 
 /* Utilities */
-.container{width:min(1120px, 92vw); margin-inline:auto}
+.container{width:min(1120px, 92vw); margin-inline:auto; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(20px); padding-top: 20px; padding-bottom: 60px;}
 .section{padding:40px 20px 80px;}
 .section--tint{background:var(--tint)}
 .section-title{margin:0 0 16px}
@@ -472,7 +472,7 @@ body::before {
 .arch_contact_us_duplicate .responsive-container-block {
   min-height: 75px;
   height: fit-content;
-  width: 100%;
+  width: 90%;
   padding-top: 0px;
   padding-right: 0px;
   padding-bottom: 0px;
@@ -493,7 +493,7 @@ body::before {
 .arch_contact_us_duplicate .responsive-container-block.big-container {
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 60px;
   /* padding-right: 50px; */
   padding-bottom: 0px;
   /* padding-left: 50px; */
@@ -504,6 +504,8 @@ body::before {
 .arch_contact_us_duplicate .responsive-container-block.container {
   max-width: 1140px;
   justify-content: space-evenly;
+  padding-top: 60px;
+  margin-bottom: 40px;
 }
 
 .arch_contact_us_duplicate .text-blk.section-head {
@@ -665,9 +667,9 @@ body::before {
 
   .arch_contact_us_duplicate .responsive-container-block.container {
     justify-content: space-evenly;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-right: 0px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     margin-left: 0px;
   }
 
