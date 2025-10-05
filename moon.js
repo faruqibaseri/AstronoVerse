@@ -19,53 +19,63 @@ const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 
 /* ========= Render cards ========= */
-function renderCards(category, query=""){
-  cardsWrap.innerHTML = "";
-  const q = query.trim().toLowerCase();
-  const filtered = cardsData.filter(c => {
-    const matchCat = !category ? true : c.category === category;
-    const matchText = !q ? true : (c.title.toLowerCase().includes(q));
-    return matchCat && matchText;
+  function renderCards(category, query = "") {
+    cardsWrap.innerHTML = "";
+    const q = (query || "").trim().toLowerCase();
+    const filtered = cardsData.filter(c => {
+      const matchCat = !category ? true : c.category === category;
+      const matchText = !q ? true : c.title.toLowerCase().includes(q);
+      return matchCat && matchText;
+    });
+
+    if (filtered.length === 0) {
+      cardsWrap.innerHTML = `<p class="muted">No items found.</p>`;
+      return;
+    }
+
+    filtered.forEach((c, i) => {
+      const el = document.createElement('article');
+      el.className = 'card reveal tilt';
+      el.style.transitionDelay = `${(i % 3) * 0.05}s`;
+      el.innerHTML = `
+        <a class="thumb hover-zoom" href="#">
+          <img src="${c.img}" alt="${c.title}">
+        </a>
+        <div class="card-body">
+          <div class="card-meta"><span>${c.time}</span>·<span>${c.date}</span></div>
+          <h4>${c.title}</h4>
+        </div>
+      `;
+      cardsWrap.appendChild(el);
+    });
+
+    observeReveals(); // re-attach animations
+  }
+
+  /* ========= Tabs logic + animated underline ========= */
+  function moveInkToTab(activeBtn) {
+    if (!activeBtn || !tabInk) return;
+    // ensure parent has position: relative in CSS for this to align
+    tabInk.style.width = `${activeBtn.offsetWidth}px`;
+    tabInk.style.left = `${activeBtn.offsetLeft}px`;
+  }
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      tabs.forEach(t => t.setAttribute('aria-selected', t === btn ? 'true' : 'false'));
+
+      const q = searchInput?.value ?? ""; // <-- safe access
+      moveInkToTab(btn);
+
+      try {
+        renderCards(btn.dataset.category, q);
+      } catch (err) {
+        console.error('renderCards error:', err);
+      }
+    });
   });
-
-  filtered.forEach((c,i)=>{
-    const el = document.createElement('article');
-    el.className = 'card reveal';
-    el.style.transitionDelay = `${(i%3)*0.05}s`;
-    el.innerHTML = `
-      <a class="thumb hover-zoom" href="#">
-        <img src="${c.img}" alt="${c.title}">
-      </a>
-      <div class="card-body">
-        <div class="card-meta"><span>${c.time}</span>·<span>${c.date}</span></div>
-        <h4>${c.title}</h4>
-      </div>
-    `;
-    cardsWrap.appendChild(el);
-  });
-
-  observeReveals(); // re-attach animations
-}
-
-/* ========= Tabs logic + animated underline ========= */
-function moveInkToTab(activeBtn){
-  const bbox = activeBtn.getBoundingClientRect();
-  const parentBox = activeBtn.parentElement.getBoundingClientRect();
-  const left = activeBtn.offsetLeft;
-  tabInk.style.width = bbox.width + 'px';
-  tabInk.style.left = left + 'px';
-}
-
-
-tabs.forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    tabs.forEach(t => t.classList.remove('is-active'));
-    btn.classList.add('is-active');
-    tabs.forEach(t => t.setAttribute('aria-selected', t===btn ? 'true' : 'false'));
-    moveInkToTab(btn);
-    renderCards(btn.dataset.category, searchInput.value);
-  });
-});
 
 
 /* ========= Scroll reveal ========= */
