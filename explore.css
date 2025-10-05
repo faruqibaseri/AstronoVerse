@@ -337,7 +337,7 @@ box-shadow:var(--shadow);transform: translateY(-5px);transform: scale(1.05);
 }
 
 .meta p {
-    margin: 0 0 10px;
+    margin: 0 0 20px;
     color: #efefef
 }
 

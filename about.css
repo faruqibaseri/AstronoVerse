@@ -542,7 +542,7 @@ body::before {
     border-left-style: none;
     border-top-color: #cbcbcb;
     border-right-color: #cbcbcb;
-    border-bottom-color: #cbcbcb;
+    /* border-bottom-color: #cbcbcb; */
     border-left-color: #cbcbcb;
     border-image-source: initial;
     border-image-slice: initial;
@@ -577,7 +577,7 @@ body::before {
     border-left-style: none;
     border-top-color: #cbcbcb;
     border-right-color: #cbcbcb;
-    border-bottom-color: #cbcbcb;
+    /* border-bottom-color: #cbcbcb; */
     border-left-color: #cbcbcb;
     border-image-source: initial;
     border-image-slice: initial;
@@ -629,7 +629,10 @@ body::before {
 }
 
 .arch_contact_us_duplicate .input-element {
-  background-color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(25px);
 }
 
 
