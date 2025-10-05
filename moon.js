@@ -139,6 +139,25 @@ document.getElementById('playlist').addEventListener('click', (e)=>{
   mainVideo.src = `https://www.youtube.com/embed/${id}`;
 });
 
+  const playlistItems = document.querySelectorAll('#playlist li');
+
+  playlistItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove 'is-active' from all items
+      playlistItems.forEach(i => i.classList.remove('is-active'));
+
+      // Add 'is-active' to the clicked item
+      item.classList.add('is-active');
+
+      // (Optional) update video iframe based on data-video
+      const videoId = item.getAttribute('data-video');
+      const iframe = document.querySelector('.ratio iframe');
+      if (iframe) {
+        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      }
+    });
+  });
+
 /* ========= View all smooth scroll ========= */
 viewAllBtn.addEventListener('click', ()=>{
   window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
