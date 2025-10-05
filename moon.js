@@ -31,6 +31,7 @@ function renderCards(category, query=""){
   filtered.forEach((c,i)=>{
     const el = document.createElement('article');
     el.className = 'card reveal';
+    el.style.transitionDelay = `${(i%3)*0.05}s`;
     el.innerHTML = `
       <a class="thumb hover-zoom" href="#">
         <img src="${c.img}" alt="${c.title}">
@@ -54,6 +55,7 @@ function moveInkToTab(activeBtn){
   tabInk.style.width = bbox.width + 'px';
   tabInk.style.left = left + 'px';
 }
+
 
 tabs.forEach(btn=>{
   btn.addEventListener('click', ()=>{
