@@ -225,7 +225,7 @@ img{display:block; max-width:100%; height:auto}
   position:relative; display:flex; gap:10px; padding:12px 0; overflow: overlay;
 }
 .tab{
-  position:relative; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); border: none; backdrop-filter: blur(20px);
+  position:relative; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.07); border: none; backdrop-filter: blur(20px);
   padding:.55rem 1rem; border-radius:999px; font-weight:700; cursor:pointer; transition:.25s; color: white;
 }
 .tab.is-active{background:var(--bpPrimary-300); border-color:#cfe6ff}
