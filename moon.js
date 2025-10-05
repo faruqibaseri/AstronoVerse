@@ -31,7 +31,6 @@ function renderCards(category, query=""){
   filtered.forEach((c,i)=>{
     const el = document.createElement('article');
     el.className = 'card reveal';
-    el.style.transitionDelay = `${(i%3)*0.05}s`;
     el.innerHTML = `
       <a class="thumb hover-zoom" href="#">
         <img src="${c.img}" alt="${c.title}">
@@ -39,10 +38,6 @@ function renderCards(category, query=""){
       <div class="card-body">
         <div class="card-meta"><span>${c.time}</span>·<span>${c.date}</span></div>
         <h4>${c.title}</h4>
-        <div class="actions">
-          <button class="btn btn-secondary">Register ></button>
-          <button class="btn btn-ghost">Save</button>
-        </div>
       </div>
     `;
     cardsWrap.appendChild(el);
@@ -70,14 +65,6 @@ tabs.forEach(btn=>{
   });
 });
 
-/* ========= Search ========= */
-searchBtn.addEventListener('click', ()=>{
-  const activeTab = document.querySelector('.tab.is-active');
-  renderCards(activeTab?.dataset.category, searchInput.value);
-});
-searchInput.addEventListener('keydown', (e)=>{
-  if(e.key === 'Enter') searchBtn.click();
-});
 
 /* ========= Scroll reveal ========= */
 let revealObserver;
@@ -97,6 +84,39 @@ function observeReveals(){
   }, {threshold:0.15});
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 }
+
+/* Scroll reveal */
+  const ro = new IntersectionObserver((ents)=>{
+    ents.forEach(ent=>{
+      if(ent.isIntersecting){
+        ent.target.classList.add('is-visible');
+        ro.unobserve(ent.target);
+      }
+    });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  /* Tilt effect (subtle) */
+  document.querySelectorAll('.tilt').forEach(el => {
+    let rAF;
+    function onMove(e){
+      const rect = el.getBoundingClientRect();
+      const cx = rect.left + rect.width/2;
+      const cy = rect.top + rect.height/2;
+      const dx = (e.clientX - cx) / rect.width;
+      const dy = (e.clientY - cy) / rect.height;
+      const rx = (dy * -6).toFixed(2);
+      const ry = (dx * 6).toFixed(2);
+      if(rAF) cancelAnimationFrame(rAF);
+      rAF = requestAnimationFrame(()=>{
+        el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+      });
+    }
+    function reset(){ el.style.transform = 'none'; }
+    el.addEventListener('mousemove', onMove);
+    el.addEventListener('mouseleave', reset);
+  });
+
 
 /* ========= Playlist (switch video) ========= */
 const mainVideo = document.getElementById('mainVideo');
