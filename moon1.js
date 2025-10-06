@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-
-  
   // Elements
   const audio = document.getElementById('recitationAudio');
   const playBtn = document.getElementById('playBtn');
@@ -180,23 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Share / copy link
-  const shareBtn = document.getElementById('shareBtn');
-  shareBtn?.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-      shareBtn.textContent = '✔️ Disalin';
-      setTimeout(()=> shareBtn.textContent = '🔗 Salin Pautan', 1600);
-    } catch {
-      alert('Sila salin URL secara manual dari bar alamat.');
-    }
-  });
-
-  // Open full tafsir (placeholder)
-  document.getElementById('openFullTafsir')?.addEventListener('click', () => {
-    window.open('tafsir-full.html','_blank');
-  });
-
   // RANDOM AYAT feature
   const quotes = [
     { arab: 'وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ', trans: 'Dan Dia beserta kamu di mana sahaja kamu berada.', ref: 'Al-Hadid 57:4' },
@@ -234,16 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
-// function playAudio() {
-//   const audio = document.getElementById("audioTest");
-//   audio.play();
-// }
-
-// function pauseAudio() {
-//   const audio = document.getElementById("audioTest");
-//   audio.pause();
-// }
 
 const audio = document.getElementById("audioTest");
 const playBtn = document.getElementById("playBtn");
