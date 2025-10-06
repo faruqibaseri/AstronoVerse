@@ -244,7 +244,7 @@ details summary{cursor:pointer;color:var(--accent-2);font-weight:600}
 .tabpanel.active{display:block}
 
 /* fullwidth */
-.fullwidth{margin-top:18px}
+.fullwidth{margin-top:20px; margin-bottom:20px}
 .refs{color:#e5e5e5}
 
 /* modal */
@@ -256,7 +256,7 @@ details summary{cursor:pointer;color:var(--accent-2);font-weight:600}
 
 /* small util */
 .small{font-size:0.9rem}
-.muted{color:var(--muted)}
+.muted{color:#9d9d9d}
 .reveal{opacity:0;transform:translateY(16px);transition:all .6s ease}
 
 /* Footer */
