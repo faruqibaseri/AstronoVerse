@@ -629,7 +629,7 @@ body::before {
   margin-top: 0px;
   margin-right: 0px;  
   margin-left: 0px;
-  background-color: rgb(85, 26, 139);
+  background: linear-gradient(180deg, #5b84ff, #3866ff);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   border-radius: 50px;
   cursor: pointer;

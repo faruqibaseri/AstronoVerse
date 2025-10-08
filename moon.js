@@ -158,10 +158,15 @@ document.getElementById('playlist').addEventListener('click', (e)=>{
     });
   });
 
-/* ========= View all smooth scroll ========= */
-viewAllBtn.addEventListener('click', ()=>{
-  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+// Add event listener
+viewAllBtn.addEventListener('click', () => {
+  const targetId = viewAllBtn.getAttribute('data-target');
+  const targetElement = document.getElementById(targetId);
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+  }
 });
+
 
 /* ========= Mobile menu (basic) ========= */
 const burger = document.querySelector('.hamburger');
