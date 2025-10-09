@@ -52,6 +52,34 @@ const searchBtn = document.getElementById('searchBtn');
     observeReveals(); // re-attach animations
   }
 
+  const fullscreenBtn = document.getElementById("fullscreenBtn");
+  const qrImage = document.getElementById("qrImage");
+
+  fullscreenBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const overlay = document.createElement("div");
+    overlay.id = "fullscreenOverlay";
+
+    const img = qrImage.cloneNode();
+    overlay.appendChild(img);
+
+    document.body.appendChild(overlay);
+
+    requestAnimationFrame(() => {
+      overlay.classList.add("show");
+    });
+
+    overlay.addEventListener("click", function () {
+      overlay.classList.remove("show");
+      setTimeout(() => overlay.remove(), 300);
+    });
+  });
+
+
+
+
+
   /* ========= Tabs logic + animated underline ========= */
   function moveInkToTab(activeBtn) {
     if (!activeBtn || !tabInk) return;
@@ -230,3 +258,51 @@ document.querySelectorAll(".mobile__toggle").forEach(btn => {
     parent.classList.toggle("open");
   });
 });
+
+
+const reflections = [
+  "Be grateful for every small blessing.",
+  "Silence often says more than words.",
+  "Progress is better than perfection.",
+  "Take time to breathe and realign.",
+  "Kindness always finds its way back."
+];
+
+const quotes = [
+  "Believe you can and you're halfway there.",
+  "The future belongs to those who prepare today.",
+  "Be the light that helps others see.",
+  "Happiness blooms from within.",
+  "Dream big, work hard, stay humble."
+];
+
+const qrImages = [
+  "qrcode/qr1.jpg",
+  "qrcode/qr2.jpg",
+  "qrcode/qr3.jpg",
+  "qrcode/qr4.jpg",
+  "qrcode/qr5.jpg",
+  "qrcode/qr6.jpg",
+];
+
+function newReflection() {
+  const reflectionText = document.getElementById("reflectionText");
+  reflectionText.textContent =
+    reflections[Math.floor(Math.random() * reflections.length)];
+}
+
+function newQuote() {
+  const quoteText = document.getElementById("quoteText");
+  const qrImage = document.getElementById("qrImage");
+
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  quoteText.textContent = quotes[randomIndex];
+  qrImage.src = qrImages[randomIndex];
+}
+
+// Load first content
+window.onload = () => {
+  newReflection();
+  newQuote();
+};
+

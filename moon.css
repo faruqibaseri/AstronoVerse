@@ -30,6 +30,8 @@ body::before {
 }
 
 img{display:block; max-width:100%; height:auto}
+img#qrImage {display:block; max-width:100%; height:400px; width: 400px;}
+.media{max-width: fit-content; max-height: fit-content;}
 .container{width:min(1200px,92vw); margin-inline:auto}
 
 .wrap{max-width:1140px; margin:auto; padding:0 3%}
@@ -49,6 +51,20 @@ img{display:block; max-width:100%; height:auto}
 .mt-20{margin-top:40px}
 .mt-10{margin-top:10px}
 .muted{color:var(--muted)}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s ease;
+}
+
+
 
 /* Topbar */
 .topbar{position:relative; top:40px; z-index:40; background: rgba(255, 255, 255, 0.1);border-radius: 20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(25px);width: 80%;justify-self: center; justify-items: center;}
@@ -239,23 +255,99 @@ img{display:block; max-width:100%; height:auto}
 /* ========= Featured */
 .section{padding:34px 0}
 .featured-card{
-  display:grid; grid-template-columns: 1.2fr 1fr; gap:20px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(20px); padding:16px;
+  display:grid; grid-template-columns: 1.2fr 1fr; gap:20px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(20px); padding:16px;justify-self: center;
 }
+
+.content {place-self:center;}
 .thumb{position:relative; display:block; border-radius:12px; overflow:hidden}
 .thumb .play{
   position:absolute; inset:auto; left:16px; bottom:16px; width:52px; height:52px; border-radius:50%;
-  background:#fff; display:grid; place-items:center; box-shadow:var(--shadow);
+  background:rgba(255, 255, 255, 0.05); display:grid; place-items:center; box-shadow:0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(20px); color: white; cursor: pointer;
 }
-.thumb .play::before{
+/* .thumb .play::before{
   content:""; display:block; width:0; height:0; border-left:14px solid var(--ink);
   border-top:8px solid transparent; border-bottom:8px solid transparent; margin-left:4px;
-}
+} */
 .hover-zoom img{transition:transform .35s ease}
 .hover-zoom:hover img{transform:scale(1.04)}
+
+.hover-zoomout img{transition:transform .35s ease}
+.hover-zoomout:hover img{transform:scale(1.01)}
+
+
 .badge{display:inline-block; padding:.25rem .55rem; background:#eef2ff; color:#3843a6; border-radius:6px; font-weight:700}
 .meta{color:#8f8f8f; margin:6px 0}
 .featured-card h2{margin:6px 0 8px}
 .cta-row{display:flex; gap:10px; flex-wrap:wrap}
+
+.qr-container {
+  margin-top: 15px;
+}
+
+.qr-container img {
+  width: 700px;
+  height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.cardquote {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  padding: 20px;
+  margin-bottom: 25px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  justify-self: center;
+  text-align: center;
+}
+
+.cardquote:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Fullscreen overlay */
+#fullscreenOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+#fullscreenOverlay.show {
+  opacity: 1;
+}
+
+#fullscreenOverlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+#fullscreenOverlay.show img {
+  transform: scale(1);
+  width: max-content;
+  height: max-content;
+}
+
+
+
+
 
 /* ========= Cards Grid */
 .cards-grid{

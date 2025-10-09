@@ -110,20 +110,18 @@
     <div class="container">
       <article class="featured-card reveal">
         <div class="media">
-          <a href="#" class="thumb hover-zoom" aria-label="Play featured video">
-            <img src="https://placehold.co/720x420" alt="Featured webinar thumbnail" />
-            <span class="play"></span>
+          <a class="thumb hover-zoomout" aria-label="Play featured video">
+            <img src="qrcode/qr1.jpg" id="qrImage" alt="QR Code" />
+            <span class="play"><i class="fa fa-arrows-alt hover-zoom" id="fullscreenBtn" aria-hidden="true"></i></span>
           </a>
         </div>
         <div class="content">
-          <span class="badge">Category</span>
-          <p class="meta">📅 12 Aug 2025 · ⏱ 60 minutes</p>
-          <h2>Featured Webinar: Building Better Study Habits</h2>
-          <p>Learn evidence-based techniques for retention and focus. Perfect for students, educators,
-            and lifelong learners seeking practical tools.</p>
+          <span class="badge">💭 Quote</span>
+          <!-- <p class="meta">📅 12 Aug 2025 · ⏱ 60 minutes</p> -->
+          <h2>Quote of the Day!</h2>
+          <p id="quoteText"></p>
           <div class="cta-row">
-            <button class="btn btn-primary">Save my spot</button>
-            <button class="btn btn-ghost">Share</button>
+            <button onclick="newQuote()">New Quote</button>
           </div>
         </div>
       </article>
