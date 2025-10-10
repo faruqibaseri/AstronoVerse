@@ -52,8 +52,8 @@ img#qrImage {display:block; max-width:100%;}
 .mt-10{margin-top:10px}
 .muted{color:var(--muted)}
 
-button {
-  background: #007bff;
+#quotebutton {
+  background: linear-gradient(180deg, #5b84ff, #3866ff);
   color: white;
   border: none;
   border-radius: 12px;
@@ -61,10 +61,14 @@ button {
   margin-top: 10px;
   cursor: pointer;
   font-size: 15px;
-  transition: background 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 
+#quotebutton:hover{
+  transform:scale(1.03);
+  
+}
 
 /* Topbar */
 .topbar{position:relative; top:40px; z-index:40; background: rgba(255, 255, 255, 0.1);border-radius: 20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(25px);width: 80%;justify-self: center; justify-items: center;}
@@ -361,6 +365,12 @@ button {
 .reflection .q-meta {
   text-align: start;
   color:#c5c5c5;
+}
+
+#quoteText {
+  text-align: justify;
+  min-height: max-content;
+  height: 50px;
 }
 
 
