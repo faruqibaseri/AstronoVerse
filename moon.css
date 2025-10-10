@@ -255,15 +255,16 @@ button {
 /* ========= Featured */
 .section{padding:34px 0}
 .featured-card{
-  display:grid; grid-template-columns: 1.2fr 1fr; gap:20px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(20px); padding:16px;justify-self: center;
+  display:grid; grid-template-columns: 1fr 1fr; gap:40px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(20px); padding:16px;justify-self: center;
 }
 
-.content {place-self:center;}
+.content {align-content:center;}
 .thumb{position:relative; display:block; border-radius:12px; overflow:hidden}
 .thumb .play{
-  position:absolute; inset:auto; left:16px; bottom:16px; width:52px; height:52px; border-radius:50%;
+  position:absolute; inset:auto; left:16px; bottom:16px; width:42px; height:42px; border-radius:50%;
   background:rgba(255, 255, 255, 0.05); display:grid; place-items:center; box-shadow:0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(20px); color: white; cursor: pointer;
 }
+.play .fa {font-size: 20px;}
 /* .thumb .play::before{
   content:""; display:block; width:0; height:0; border-left:14px solid var(--ink);
   border-top:8px solid transparent; border-bottom:8px solid transparent; margin-left:4px;

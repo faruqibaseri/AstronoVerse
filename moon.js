@@ -260,13 +260,6 @@ document.querySelectorAll(".mobile__toggle").forEach(btn => {
 });
 
 
-const reflections = [
-  "Be grateful for every small blessing.",
-  "Silence often says more than words.",
-  "Progress is better than perfection.",
-  "Take time to breathe and realign.",
-  "Kindness always finds its way back."
-];
 
 const quotes = [
   "Believe you can and you're halfway there.",
@@ -285,11 +278,6 @@ const qrImages = [
   "qrcode/qr6.jpg",
 ];
 
-function newReflection() {
-  const reflectionText = document.getElementById("reflectionText");
-  reflectionText.textContent =
-    reflections[Math.floor(Math.random() * reflections.length)];
-}
 
 function newQuote() {
   const quoteText = document.getElementById("quoteText");
@@ -300,9 +288,11 @@ function newQuote() {
   qrImage.src = qrImages[randomIndex];
 }
 
-// Load first content
 window.onload = () => {
+  document.getElementById("quoteText").textContent = quotes[0];
+  document.getElementById("qrImage").src = qrImages[0];
+
+
   newReflection();
-  newQuote();
 };
 
