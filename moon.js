@@ -298,38 +298,38 @@ const verses = [
   {
     surah: 'Al-Ikhlas (112:1)',
     arabic: '﴿ قُلْ هُوَ اللَّهُ أَحَدٌ ﴾',
-    translation: 'Katakanlah: "Dia-lah Allah, Yang Maha Esa."',
-    reflection: 'Keyakinan kepada ke-Esa-an Allah menguatkan hati — apabila kita tahu sumber segala kekuatan adalah satu, kita tidak mudah gelisah menghadapi ujian.'
+    translation: 'Say, ˹O Prophet,˺ “He is Allah—One ˹and Indivisible˺;',
+    reflection: 'Belief in the Oneness of Allah strengthens the heart — when we know that the source of all strength is One, we do not easily become anxious in facing trials.'
   },
   {
     surah: 'Ar-Rahman (55:13)',
     arabic: '﴿ فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ ﴾',
-    translation: 'Maka nikmat Tuhan kamu yang manakah yang kamu dustakan?',
-    reflection: 'Setiap hari ada nikmat baru — latihan kecil: catat 3 nikmat hari ini untuk menguatkan rasa syukur.'
+    translation: 'Then which of your Lord’s favours will you ˹humans and jinn˺ both deny?',
+    reflection: 'Gratitude keeps our hearts humble and aware that every good thing is a gift from Allah, never to be taken for granted.'
   },
   {
     surah: 'Ash-Sharh (94:5)',
     arabic: '﴿ فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾',
-    translation: 'Sesungguhnya bersama kesulitan ada kemudahan.',
-    reflection: 'Saat susah, ingatlah bahawa Allah menyertakan jalan keluar. Jangan mudah putus asa kerana setiap ujian disertakan rahmat.'
+    translation: 'So, surely with hardship comes ease.',
+    reflection: 'In times of hardship, remember that Allah always provides a way out. Do not lose hope, for every test comes with His mercy.'
   },
   {
     surah: 'Al-Baqarah (2:286)',
     arabic: '﴿ لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ﴾',
-    translation: 'Allah tidak membebani seseorang melainkan sesuai dengan kesanggupannya.',
-    reflection: 'Allah tidak menguji melebihi kemampuanmu — percayalah bahawa kekuatan sebenar muncul apabila kita bersandar kepada-Nya.'
+    translation: 'Allah does not require of any soul more than what it can afford.',
+    reflection: 'Allah does not test you beyond your ability — believe that true strength appears when we rely on Him.'
   },
   {
     surah: 'An-Nur (24:35)',
     arabic: '﴿ اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ ﴾',
-    translation: 'Allah (adalah) cahaya bagi langit dan bumi.',
-    reflection: 'Biarlah cahaya Allah menerangi hati dan fikiranmu — kerana cahaya iman menuntun jalan dalam gelap kehidupan.'
+    translation: 'Allah is the Light of the heavens and the earth.',
+    reflection: "Let the light of Allah illuminate your heart and mind — for the light of faith guides the way through life's darkness."
   },
   {
     surah: 'Al-Insyirah (94:7-8)',
     arabic: '﴿ فَإِذَا فَرَغْتَ فَانصَبْ وَإِلَىٰ رَبِّكَ فَارْغَبْ ﴾',
-    translation: 'Maka apabila engkau telah selesai (dari sesuatu urusan), tetaplah bekerja keras (untuk urusan lain), dan hanya kepada Tuhanmu engkau berharap.',
-    reflection: 'Teruskan berusaha dan jangan berhenti — setiap usaha yang disandarkan kepada Allah pasti membawa ketenangan dan hasil yang baik.'
+    translation: 'So once you have fulfilled ˹your duty˺, strive ˹in devotion˺, turning to your Lord ˹alone˺ with hope.',
+    reflection: 'Keep striving and never give up — every effort entrusted to Allah will surely bring peace and good outcomes.'
   }
 ];
 
