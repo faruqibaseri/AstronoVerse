@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Learning Informative — Explore Latest Media</title>
+  <title>Sun - AstronoVerse</title>
+  <link rel="icon" type="image/png" href="1. HOMEPAGE/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
 
   <!-- Top Navigation -->
   <header class="topbar">
-    <div class="wrap topbar__inner">
+    <div class="topbar__inner">
       <a href="index.html" class="brand" aria-label="AstronoVerse home">
         <img class="brand__logo" src="1. HOMEPAGE/logo.png" alt="Brand Logo">
       </a>
@@ -70,55 +71,27 @@
     <div class="container hero-inner">
       <div class="hero-copy">
         <h1 class="reveal">Explore Latest Media</h1>
-        <p class="sub reveal delay-1">Discover events, podcasts, webinars, and live sessions curated for meaningful learning.</p>
-        <div class="searchbar reveal delay-2">
-          <input id="searchInput" type="text" placeholder="Search article, topic, or speaker…" aria-label="Search" />
-          <button id="searchBtn" class="btn btn-primary">Search</button>
-        </div>
+        <p class="sub reveal">Discover events, podcasts, webinars, and live sessions curated for meaningful learning.</p>
       </div>
-      <div class="hero-visual reveal delay-3">
+      <div class="hero-visual reveal">
         <img src="https://placehold.co/560x320" alt="Learning Illustration" />
       </div>
     </div>
-  </section>
 
-  <!-- ===== Tabs ===== -->
   <section class="tabs-wrap">
     <div class="container">
-      <div class="tabs" role="tablist" aria-label="Content categories">
-        <button class="tab is-active" role="tab" aria-selected="true" data-category="events">Events</button>
-        <button class="tab" role="tab" aria-selected="false" data-category="podcasts">Podcasts</button>
-        <button class="tab" role="tab" aria-selected="false" data-category="webinars">Webinars</button>
-        <button class="tab" role="tab" aria-selected="false" data-category="live">Live</button>
-        <span class="tab-ink" aria-hidden="true"></span>
+      <div class="tabs reveal" role="tablist" aria-label="Content categories">
+        <button class="tab" role="tab" aria-selected="false" data-category="Moon">Moon</button>
+        <button class="tab is-active" role="tab" aria-selected="true" data-category="Sun">Sun</button>
+        <button class="tab" role="tab" aria-selected="false" data-category="Stars">Stars</button>
       </div>
     </div>
   </section>
 
-  <!-- ===== Featured ===== -->
-  <section class="featured section">
-    <div class="container">
-      <article class="featured-card reveal">
-        <div class="media">
-          <a href="#" class="thumb hover-zoom" aria-label="Play featured video">
-            <img src="https://placehold.co/720x420" alt="Featured webinar thumbnail" />
-            <span class="play"></span>
-          </a>
-        </div>
-        <div class="content">
-          <span class="badge">Category</span>
-          <p class="meta">📅 12 Aug 2025 · ⏱ 60 minutes</p>
-          <h2>Featured Webinar: Building Better Study Habits</h2>
-          <p>Learn evidence-based techniques for retention and focus. Perfect for students, educators,
-            and lifelong learners seeking practical tools.</p>
-          <div class="cta-row">
-            <button class="btn btn-primary">Save my spot</button>
-            <button class="btn btn-ghost">Share</button>
-          </div>
-        </div>
-      </article>
-    </div>
   </section>
+
+
+
 
   <!-- ===== Cards Grid ===== -->
   <section class="section">
@@ -128,34 +101,8 @@
       </div>
 
       <div class="center mt-20">
-        <button id="viewAll" class="btn btn-secondary">View all</button>
+        <button id="viewAll" class="btn btn-secondary" data-target="insights">View all</button>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== Qur'an Section ===== -->
-  <section class="quran section">
-    <div class="container">
-      <h3 class="reveal">Ayat al-Qur’an</h3>
-
-      <article class="q-card reveal delay-1">
-        <div class="q-arabic">
-          ﴿إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِأُولِي الْأَلْبَابِ﴾
-        </div>
-        <div class="q-meta">Ali ‘Imran 3:190</div>
-        <p class="q-translation">
-          “Indeed, in the creation of the heavens and the earth and the alternation of the night and the day
-          are signs for those of understanding.”
-        </p>
-      </article>
-
-      <article class="q-card reveal delay-2">
-        <div class="q-arabic">
-          ﴿وَقُل رَّبِّ زِدْنِي عِلْمًا﴾
-        </div>
-        <div class="q-meta">Taha 20:114</div>
-        <p class="q-translation">“And say, ‘My Lord, increase me in knowledge.’”</p>
-      </article>
     </div>
   </section>
 
@@ -166,7 +113,7 @@
         <div class="ratio">
           <iframe
             id="mainVideo"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            src="https://www.youtube.com/embed/2iSZMv64wuU"
             title="Learning Video"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -174,28 +121,28 @@
           </iframe>
         </div>
       </div>
-      <aside class="playlist reveal delay-1">
+      <aside class="playlist reveal">
         <h4>Playlist</h4>
         <ul id="playlist">
-          <li data-video="dQw4w9WgXcQ">
+          <li data-video="UIKmSQqp8wY" role="li" aria-selected="true">
             <img src="https://placehold.co/140x80" alt="">
             <div>
               <strong>Intro to Effective Learning</strong>
-              <span>8:21</span>
+              <br>8:21</br>
             </div>
           </li>
-          <li data-video="9bZkp7q19f0">
+          <li data-video="2iSZMv64wuU" role="li" aria-selected="false">
             <img src="https://placehold.co/140x80" alt="">
             <div>
               <strong>Note-taking that Works</strong>
-              <span>6:02</span>
+              <br>6:02</br>
             </div>
           </li>
-          <li data-video="3JZ_D3ELwOQ">
+          <li data-video="UIKmSQqp8wY" role="li" aria-selected="false">
             <img src="https://placehold.co/140x80" alt="">
             <div>
               <strong>Build a Study System</strong>
-              <span>10:44</span>
+              <br>10:44</br>
             </div>
           </li>
         </ul>
@@ -203,23 +150,98 @@
     </div>
   </section>
 
-  <!-- ===== Image Gallery ===== -->
-  <section class="gallery section">
+    <!-- ===== Reflection ===== -->
+  <section class="quran section">
     <div class="container">
-      <h3 class="reveal" style="color: white;">Learning Moments</h3>
-      <div class="gallery-grid reveal delay-1">
-        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
-        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
-        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
-        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
-        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
-        <figure class="hover-zoom"><img src="https://placehold.co/520x320" alt=""></figure>
+      <h3 class="reveal" style="place-self: center; font-size: xx-large;">Reflections</h3>
+
+      <article class="q-card reveal" id="reflectionCard">
+        <div>
+        <div class="q-arabic" id="arabicText"></div>
+        <div class="q-meta"  id="surahName" ></div>
+        <p class="q-translation"  id="translationText"></p>
+        </div>
+        <div  class="reflection reveal" >
+        <div class="q-meta" style="font-style: italic;">Tadabbur of the Verse:</div>
+        <div id="reflectionText"><p></p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- ===== Image Gallery ===== -->
+  <section class="gallery section" id="insights">
+    <div class="container">
+      <h3 class="reveal" style="color: white; place-self: center; font-size: xx-large;">Related Insights</h3>
+      <div class="gallery-grid reveal">
+ 
+        <article class="card reveal tilt show" style="transition-delay: 0s;">
+        <a class="thumb hover-zoom" href="moon1.html">
+          <img src="https://placehold.co/520x300" alt="Study Skills Bootcamp">
+        </a>
+        <div class="card-body">
+          <div class="card-meta"><span>⏱ 45 min</span>·<span>Aug 10, 2025</span></div>
+          <h4>Study Skills Bootcamp</h4>
+        </div>
+      </article>
+
+        <article class="card reveal tilt show" style="transition-delay: 0s;">
+        <a class="thumb hover-zoom" href="moon1.html">
+          <img src="https://placehold.co/520x300" alt="Study Skills Bootcamp">
+        </a>
+        <div class="card-body">
+          <div class="card-meta"><span>⏱ 45 min</span>·<span>Aug 10, 2025</span></div>
+          <h4>Study Skills Bootcamp</h4>
+        </div>
+      </article>
+
+        <article class="card reveal tilt show" style="transition-delay: 0s;">
+        <a class="thumb hover-zoom" href="moon1.html">
+          <img src="https://placehold.co/520x300" alt="Study Skills Bootcamp">
+        </a>
+        <div class="card-body">
+          <div class="card-meta"><span>⏱ 45 min</span>·<span>Aug 10, 2025</span></div>
+          <h4>Study Skills Bootcamp</h4>
+        </div>
+      </article>
+
+        <article class="card reveal tilt show" style="transition-delay: 0s;">
+        <a class="thumb hover-zoom" href="moon1.html">
+          <img src="https://placehold.co/520x300" alt="Study Skills Bootcamp">
+        </a>
+        <div class="card-body">
+          <div class="card-meta"><span>⏱ 45 min</span>·<span>Aug 10, 2025</span></div>
+          <h4>Study Skills Bootcamp</h4>
+        </div>
+      </article>
+
+        <article class="card reveal tilt show" style="transition-delay: 0s;">
+        <a class="thumb hover-zoom" href="moon1.html">
+          <img src="https://placehold.co/520x300" alt="Study Skills Bootcamp">
+        </a>
+        <div class="card-body">
+          <div class="card-meta"><span>⏱ 45 min</span>·<span>Aug 10, 2025</span></div>
+          <h4>Study Skills Bootcamp</h4>
+        </div>
+      </article>
+
+        <article class="card reveal tilt show" style="transition-delay: 0s;">
+        <a class="thumb hover-zoom" href="moon1.html">
+          <img src="https://placehold.co/520x300" alt="Study Skills Bootcamp">
+        </a>
+        <div class="card-body">
+          <div class="card-meta"><span>⏱ 45 min</span>·<span>Aug 10, 2025</span></div>
+          <h4>Study Skills Bootcamp</h4>
+        </div>
+      </article>
+
       </div>
     </div>
   </section>
 
   <!-- ===== Newsletter CTA ===== -->
-  <section class="cta section">
+  <!-- <section class="cta section">
     <div class="container cta-box reveal">
       <div>
         <h3>Stay in the loop</h3>
@@ -230,6 +252,30 @@
         <button class="btn btn-primary" type="submit">Subscribe</button>
         <span class="note" id="subNote" role="status" aria-live="polite"></span>
       </form>
+    </div>
+  </section> -->
+
+
+  <!-- ===== Quotes ===== -->
+  <section class="featured section">
+    <div class="container">
+      <article class="featured-card reveal">
+        <div class="media">
+          <a class="thumb hover-zoomout" aria-label="Play featured video"  id="fullscreenBtn" aria-hidden="true">
+            <img src="qrcode/qr1.jpg" id="qrImage" alt="QR Code" />
+          </a>
+          <p class="meta" style="margin-top: 10px">Scan to see the beauty of this quote!</p>
+        </div>
+        <div class="content">
+          <!-- <span class="badge">💭 Quote</span> -->
+          <h2>Quote of the Day!</h2>
+
+          <p id="quoteText"></p>
+          <div class="cta-row">
+            <button id="quotebutton" onclick="newQuote()">More Quotes</button>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -257,7 +303,7 @@
     </div>
 
     <div class="wrap foot__bottom">
-      <small>© <span id="year"></span> AstronoVerse. All rights reserved.</small></div>
+      <small style="color: #ededed;">© <span id="year"></span> AstronoVerse. All rights reserved.</small></div>
   </footer>
 
   <button id="toTop" class="toTop" aria-label="Back to top">↑</button>
