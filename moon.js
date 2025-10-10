@@ -2,10 +2,10 @@
 const cardsData = [
   {category:"Moon",   title:"Phases of the Moon", surah:"Surah Yaasin", ayat:"Verse 39", img:"https://placehold.co/520x300", link: "phases-of-the-moon.html"},
   {category:"Moon",   title:"The Movement of the Moon",    surah:"Surah Ash-Shams", ayat:"Verse 2", img:"https://placehold.co/520x300", link: "the-movement-of-the-moon.html"},
-  {category:"Sun", title:"Deep Work Tactics",     surah:"⏱ 35 min", ayat:"Jul 29, 2025", img:"https://placehold.co/520x300", link: "moon_phases.html"},
-  {category:"Sun", title:"Focus & Flow",          surah:"⏱ 35 min", ayat:"Jul 29, 2025", img:"https://placehold.co/520x300", link: "moon_phases.html"},
-  {category:"Stars", title:"Research Methods 101",  surah:"⏱ 35 min", ayat:"Jul 29, 2025", img:"https://placehold.co/520x300", link: "moon_phases.html"},
-  {category:"Stars", title:"Statistics for All",    surah:"⏱ 35 min", ayat:"Jul 29, 2025", img:"https://placehold.co/520x300", link: "moon_phases.html"},
+  {category:"Sun", title:"The Sun as the Determiner of Shadows",     surah:"Surah Al-Furqan", ayat:"Verse 45", img:"https://placehold.co/520x300", link: "the-sun-as-the-determiner-of-shadows.html"},
+  {category:"Sun", title:"The Sun and Modern Science",          surah:"Surah Ash-Shams", ayat:"Verse 1", img:"https://placehold.co/520x300", link: "the-sun-and-modern-science.html"},
+  {category:"Stars", title:"The Light of the Stars",  surah:"Surah Al-Waqi‘ah", ayat:"Verse 75", img:"https://placehold.co/520x300", link: "the-light-of-the-stars.html"},
+  {category:"Stars", title:"Neutron Stars and Quasars",    surah:"Surah At-Tariq", ayat:"Verse 3", img:"https://placehold.co/520x300", link: "neutron-stars-and-quasars.html"},
 ];
 
 /* ========= DOM refs ========= */
