@@ -360,6 +360,7 @@ img#qrImage {display:block; max-width:100%;}
     width: fit-content;
     place-self: center;
     margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .reflection .q-meta {
