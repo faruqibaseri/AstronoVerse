@@ -110,9 +110,8 @@
     <div class="container">
       <article class="featured-card reveal">
         <div class="media">
-          <a class="thumb hover-zoomout" aria-label="Play featured video">
+          <a class="thumb hover-zoomout" aria-label="Play featured video"  id="fullscreenBtn" aria-hidden="true">
             <img src="qrcode/qr1.jpg" id="qrImage" alt="QR Code" />
-            <span class="play"><i class="fa fa-arrows-alt hover-zoom" id="fullscreenBtn" aria-hidden="true"></i></span>
           </a>
           <p class="meta" style="margin-top: 10px">Scan to see the full quote!</p>
         </div>
@@ -264,15 +263,16 @@
     <div class="container">
       <h3 class="reveal" style="place-self: center; font-size: xx-large;">Reflections</h3>
 
-      <article class="q-card reveal">
-        <div class="q-arabic">
-          ﴿إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِأُولِي الْأَلْبَابِ﴾
+      <article class="q-card reveal" id="reflectionCard">
+        <div>
+        <div class="q-arabic" id="arabicText"></div>
+        <div class="q-meta"  id="surahName" ></div>
+        <p class="q-translation"  id="translationText"></p>
         </div>
-        <div class="q-meta">Ali ‘Imran 3:190</div>
-        <p class="q-translation">
-          “Indeed, in the creation of the heavens and the earth and the alternation of the night and the day
-          are signs for those of understanding.”
-        </p>
+        <div  class="reflection" >
+        <div class="q-meta">Penerangan:</div>
+        <div id="reflectionText"><p></p></div>
+        </div>
       </article>
     </div>
   </section>

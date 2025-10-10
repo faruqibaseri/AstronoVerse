@@ -262,11 +262,12 @@ document.querySelectorAll(".mobile__toggle").forEach(btn => {
 
 
 const quotes = [
-  "Believe you can and you're halfway there.",
-  "The future belongs to those who prepare today.",
-  "Be the light that helps others see.",
-  "Happiness blooms from within.",
-  "Dream big, work hard, stay humble."
+  "When you feel lost, Look at the stars - They shine even in the dark night.",
+  "Every sunrise is a new chance from Allah to begin again.",
+  "The moon teaches us that we don't need to be full to shine.",
+  "The sun never rushes to rise, yet it always arrives on time - Just like Allah's plan.",
+  "Even when the clouds hide the stars, we know they are still there - Just like Allah's mercy.",
+  "The Earth spins silently, yet it never stops serving its purpose - just like how faith keeps moving even in silence."
 ];
 
 const qrImages = [
@@ -278,7 +279,6 @@ const qrImages = [
   "qrcode/qr6.jpg",
 ];
 
-
 function newQuote() {
   const quoteText = document.getElementById("quoteText");
   const qrImage = document.getElementById("qrImage");
@@ -289,10 +289,69 @@ function newQuote() {
 }
 
 window.onload = () => {
-  document.getElementById("quoteText").textContent = quotes[0];
-  document.getElementById("qrImage").src = qrImages[0];
-
-
-  newReflection();
+  newQuote();
 };
+
+
+
+const verses = [
+  {
+    surah: 'Al-Ikhlas (112:1)',
+    arabic: '﴿ قُلْ هُوَ اللَّهُ أَحَدٌ ﴾',
+    translation: 'Katakanlah: "Dia-lah Allah, Yang Maha Esa."',
+    reflection: 'Keyakinan kepada ke-Esa-an Allah menguatkan hati — apabila kita tahu sumber segala kekuatan adalah satu, kita tidak mudah gelisah menghadapi ujian.'
+  },
+  {
+    surah: 'Ar-Rahman (55:13)',
+    arabic: '﴿ فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ ﴾',
+    translation: 'Maka nikmat Tuhan kamu yang manakah yang kamu dustakan?',
+    reflection: 'Setiap hari ada nikmat baru — latihan kecil: catat 3 nikmat hari ini untuk menguatkan rasa syukur.'
+  },
+  {
+    surah: 'Ash-Sharh (94:5)',
+    arabic: '﴿ فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾',
+    translation: 'Sesungguhnya bersama kesulitan ada kemudahan.',
+    reflection: 'Saat susah, ingatlah bahawa Allah menyertakan jalan keluar. Jangan mudah putus asa kerana setiap ujian disertakan rahmat.'
+  },
+  {
+    surah: 'Al-Baqarah (2:286)',
+    arabic: '﴿ لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ﴾',
+    translation: 'Allah tidak membebani seseorang melainkan sesuai dengan kesanggupannya.',
+    reflection: 'Allah tidak menguji melebihi kemampuanmu — percayalah bahawa kekuatan sebenar muncul apabila kita bersandar kepada-Nya.'
+  },
+  {
+    surah: 'An-Nur (24:35)',
+    arabic: '﴿ اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ ﴾',
+    translation: 'Allah (adalah) cahaya bagi langit dan bumi.',
+    reflection: 'Biarlah cahaya Allah menerangi hati dan fikiranmu — kerana cahaya iman menuntun jalan dalam gelap kehidupan.'
+  },
+  {
+    surah: 'Al-Insyirah (94:7-8)',
+    arabic: '﴿ فَإِذَا فَرَغْتَ فَانصَبْ وَإِلَىٰ رَبِّكَ فَارْغَبْ ﴾',
+    translation: 'Maka apabila engkau telah selesai (dari sesuatu urusan), tetaplah bekerja keras (untuk urusan lain), dan hanya kepada Tuhanmu engkau berharap.',
+    reflection: 'Teruskan berusaha dan jangan berhenti — setiap usaha yang disandarkan kepada Allah pasti membawa ketenangan dan hasil yang baik.'
+  }
+];
+
+const card = document.getElementById('reflectionCard');
+const surahName = document.getElementById('surahName');
+const arabicText = document.getElementById('arabicText');
+const translationText = document.getElementById('translationText');
+const reflectionText = document.getElementById('reflectionText');
+
+window.addEventListener('load', () => {
+  // Pick a random verse when the page loads
+  const randomIndex = Math.floor(Math.random() * verses.length);
+  const v = verses[randomIndex];
+
+  // Fill in the content
+  surahName.textContent = v.surah;
+  arabicText.textContent = v.arabic;
+  translationText.textContent = v.translation;
+  reflectionText.textContent = v.reflection;
+
+  // Add animation class after a short delay
+  setTimeout(() => card.classList.add('show'), 100);
+});
+
 

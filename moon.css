@@ -255,14 +255,14 @@ button {
 /* ========= Featured */
 .section{padding:34px 0}
 .featured-card{
-  display:grid; grid-template-columns: 1fr 1.1fr; gap:40px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(20px); padding:16px;justify-self: center;
+  display:grid; grid-template-columns: 1fr 1.3fr; gap:40px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(20px); padding:16px;justify-self: center;
 }
 
-.content {align-content:center;}
+.content {align-content:center; max-width: 500px;}
 .thumb{position:relative; display:block; border-radius:12px; overflow:hidden}
 .thumb .play{
-  position:absolute; inset:auto; left:16px; bottom:16px; width:42px; height:42px; border-radius:50%;
-  background:rgba(255, 255, 255, 0.05); display:grid; place-items:center; box-shadow:0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(20px); color: white; cursor: pointer;
+  position:absolute; inset:auto; left:5px; bottom:5px; width:42px; height:42px; border-radius:50%;
+  background:rgba(255, 255, 255, 0.05); display:grid; place-items:center; box-shadow:0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(20px); color:var(--bpPrimary-500); cursor: pointer;
 }
 .play .fa {font-size: 20px;}
 /* .thumb .play::before{
@@ -273,11 +273,11 @@ button {
 .hover-zoom:hover img{transform:scale(1.04)}
 
 .hover-zoomout img{transition:transform .35s ease}
-.hover-zoomout:hover img{transform:scale(1.01)}
+.hover-zoomout:hover img{transform:scale(1.01); cursor: pointer;}
 
 
 .badge{display:inline-block; padding:.25rem .55rem; background:#eef2ff; color:#3843a6; border-radius:6px; font-weight:700}
-.meta{color:#8f8f8f; margin:15px 0px 0px 0px; place-self: center;}
+.meta{color:#c5c5c5; margin:15px 0px 0px 0px; place-self: center;}
 .featured-card h2{margin:6px 0 8px}
 .cta-row{display:flex; gap:10px; flex-wrap:wrap}
 
@@ -347,7 +347,21 @@ button {
 }
 
 
+.reflection {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    padding:20px;
+    width: fit-content;
+    place-self: center;
+    margin-top: 40px;
+}
 
+.reflection .q-meta {
+  text-align: start;
+  color:#c5c5c5;
+}
 
 
 /* ========= Cards Grid */
