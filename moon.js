@@ -1,13 +1,11 @@
 /* ========= Sample content data (cards) ========= */
 const cardsData = [
-  {category:"events",   title:"Study Skills Bootcamp", time:"⏱ 45 min", date:"Aug 10, 2025", img:"https://placehold.co/520x300"},
-  {category:"podcasts", title:"Deep Work Tactics",     time:"🎧 28 min", date:"Aug 06, 2025", img:"https://placehold.co/520x300"},
-  {category:"webinars", title:"Research Methods 101",  time:"⏱ 60 min", date:"Aug 02, 2025", img:"https://placehold.co/520x300"},
-  {category:"live",     title:"Q&A with Mentors",      time:"🔴 Live",   date:"Aug 15, 2025", img:"https://placehold.co/520x300"},
-  {category:"events",   title:"Memory & Retention",    time:"⏱ 35 min", date:"Jul 29, 2025", img:"https://placehold.co/520x300"},
-  {category:"webinars", title:"Statistics for All",    time:"⏱ 50 min", date:"Jul 22, 2025", img:"https://placehold.co/520x300"},
-  {category:"podcasts", title:"Focus & Flow",          time:"🎧 31 min", date:"Jul 18, 2025", img:"https://placehold.co/520x300"},
-  {category:"events",   title:"Learning Theories",     time:"⏱ 40 min", date:"Jul 10, 2025", img:"https://placehold.co/520x300"},
+  {category:"Moon",   title:"Phases of the Moon", surah:"Surah Yaasin", ayat:"Verse 39", img:"https://placehold.co/520x300", link: "phases-of-the-moon.html"},
+  {category:"Moon",   title:"The Movement of the Moon",    surah:"Surah Ash-Shams", ayat:"Verse 2", img:"https://placehold.co/520x300", link: "the-movement-of-the-moon.html"},
+  {category:"Sun", title:"Deep Work Tactics",     surah:"⏱ 35 min", ayat:"Jul 29, 2025", img:"https://placehold.co/520x300", link: "moon_phases.html"},
+  {category:"Sun", title:"Focus & Flow",          surah:"⏱ 35 min", ayat:"Jul 29, 2025", img:"https://placehold.co/520x300", link: "moon_phases.html"},
+  {category:"Stars", title:"Research Methods 101",  surah:"⏱ 35 min", ayat:"Jul 29, 2025", img:"https://placehold.co/520x300", link: "moon_phases.html"},
+  {category:"Stars", title:"Statistics for All",    surah:"⏱ 35 min", ayat:"Jul 29, 2025", img:"https://placehold.co/520x300", link: "moon_phases.html"},
 ];
 
 /* ========= DOM refs ========= */
@@ -38,12 +36,12 @@ const searchBtn = document.getElementById('searchBtn');
       el.className = 'card reveal tilt';
       el.style.transitionDelay = `${(i % 3) * 0.05}s`;
       el.innerHTML = `
-        <a class="thumb hover-zoom" href="#">
+        <a class="thumb hover-zoom" href="${c.link}">
           <img src="${c.img}" alt="${c.title}">
         </a>
         <div class="card-body">
-          <div class="card-meta"><span>${c.time}</span>·<span>${c.date}</span></div>
           <h4>${c.title}</h4>
+          <div class="card-meta"><span>${c.surah}</span>·<span>${c.ayat}</span></div>
         </div>
       `;
       cardsWrap.appendChild(el);
@@ -94,7 +92,7 @@ const searchBtn = document.getElementById('searchBtn');
       btn.classList.add('is-active');
       tabs.forEach(t => t.setAttribute('aria-selected', t === btn ? 'true' : 'false'));
 
-      const q = searchInput?.value ?? ""; // <-- safe access
+      const q = searchInput?.value ?? "";
       moveInkToTab(btn);
 
       try {
@@ -210,7 +208,7 @@ window.addEventListener('load', ()=>{
   // default: Events
   const active = document.querySelector('.tab.is-active');
   moveInkToTab(active);
-  renderCards('events');
+  renderCards('Moon');
   observeReveals();
 });
 window.addEventListener('resize', ()=>{
@@ -340,17 +338,14 @@ const translationText = document.getElementById('translationText');
 const reflectionText = document.getElementById('reflectionText');
 
 window.addEventListener('load', () => {
-  // Pick a random verse when the page loads
   const randomIndex = Math.floor(Math.random() * verses.length);
   const v = verses[randomIndex];
 
-  // Fill in the content
   surahName.textContent = v.surah;
   arabicText.textContent = v.arabic;
   translationText.textContent = v.translation;
   reflectionText.textContent = v.reflection;
 
-  // Add animation class after a short delay
   setTimeout(() => card.classList.add('show'), 100);
 });
 

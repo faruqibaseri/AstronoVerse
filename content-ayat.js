@@ -177,43 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  // RANDOM AYAT feature
-  const quotes = [
-    { arab: 'وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ', trans: 'Dan Dia beserta kamu di mana sahaja kamu berada.', ref: 'Al-Hadid 57:4' },
-    { arab: 'فَإِنَّ مَعَ الْعُسْرِ يُسْرًا', trans: 'Sesungguhnya bersama kesukaran ada kemudahan.', ref: 'Al-Inshirah 94:6' },
-    { arab: 'وَهُوَ الَّذِي جَعَلَ الشَّمْسَ ضِيَاءً وَالْقَمَرَ نُورًا', trans: 'Dan Dia yang menjadikan matahari cahaya dan bulan cahaya (yang dipantulkan).', ref: 'Yunus 10:5' },
-    { arab: 'أَوَلَمْ يَنظُرُوا إِلَى السَّمَاءِ فَوْقَهُمْ', trans: 'Tidakkah mereka memerhati langit di atas mereka?', ref: 'Qaf 50:6' }
-  ];
-  const quoteModal = document.getElementById('quoteModal');
-  const modalClose = document.querySelector('.modal-close');
-  const modalArab = document.getElementById('modalAyatArabic');
-  const modalTrans = document.getElementById('modalAyatTrans');
-  const modalRef = document.getElementById('modalAyatRef');
-  const randomAyatBtn = document.getElementById('randomAyatBtn');
-  const anotherQuote = document.getElementById('anotherQuote');
-  const closeModalBtn = document.getElementById('closeModalBtn');
-
-  function showQuote(idx) {
-    const q = quotes[idx ?? Math.floor(Math.random()*quotes.length)];
-    modalArab.textContent = q.arab;
-    modalTrans.textContent = q.trans;
-    modalRef.textContent = q.ref;
-    quoteModal.setAttribute('aria-hidden','false');
-  }
-  randomAyatBtn?.addEventListener('click', () => showQuote());
-  anotherQuote?.addEventListener('click', () => showQuote());
-  modalClose?.addEventListener('click', () => quoteModal.setAttribute('aria-hidden','true'));
-  closeModalBtn?.addEventListener('click', () => quoteModal.setAttribute('aria-hidden','true'));
-  quoteModal?.addEventListener('click', (e) => { if (e.target === quoteModal) quoteModal.setAttribute('aria-hidden','true'); });
-
-  // Accessibility: Esc to close modal
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      quoteModal?.setAttribute('aria-hidden','true');
-      tooltip.style.display = 'none';
-    }
-  });
 });
 
 const audio = document.getElementById("audioTest");
