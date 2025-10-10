@@ -105,29 +105,6 @@
     </div>
   </section>
 
-  <!-- ===== Featured ===== -->
-  <section class="featured section">
-    <div class="container">
-      <article class="featured-card reveal">
-        <div class="media">
-          <a class="thumb hover-zoomout" aria-label="Play featured video"  id="fullscreenBtn" aria-hidden="true">
-            <img src="qrcode/qr1.jpg" id="qrImage" alt="QR Code" />
-          </a>
-          <p class="meta" style="margin-top: 10px">Scan to see the beauty of this quote!</p>
-        </div>
-        <div class="content">
-          <!-- <span class="badge">💭 Quote</span> -->
-          <h2>Quote of the Day!</h2>
-
-          <p id="quoteText"></p>
-          <div class="cta-row">
-            <button id="quotebutton" onclick="newQuote()">More Quotes</button>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <!-- ===== Video Section ===== -->
   <section class="video section">
     <div class="container video-grid">
@@ -171,6 +148,26 @@
       </aside>
     </div>
   </section>
+
+    <!-- ===== Reflection ===== -->
+  <section class="quran section">
+    <div class="container">
+      <h3 class="reveal" style="place-self: center; font-size: xx-large;">Reflections</h3>
+
+      <article class="q-card reveal" id="reflectionCard">
+        <div>
+        <div class="q-arabic" id="arabicText"></div>
+        <div class="q-meta"  id="surahName" ></div>
+        <p class="q-translation"  id="translationText"></p>
+        </div>
+        <div  class="reflection" >
+        <div class="q-meta" style="font-style: italic;">Tadabbur of the Verse:</div>
+        <div id="reflectionText"><p></p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
 
   <!-- ===== Image Gallery ===== -->
   <section class="gallery section" id="insights">
@@ -258,20 +255,24 @@
   </section> -->
 
 
-    <!-- ===== Qur'an Section ===== -->
-  <section class="quran section">
+  <!-- ===== Quotes ===== -->
+  <section class="featured section">
     <div class="container">
-      <h3 class="reveal" style="place-self: center; font-size: xx-large;">Reflections</h3>
-
-      <article class="q-card reveal" id="reflectionCard">
-        <div>
-        <div class="q-arabic" id="arabicText"></div>
-        <div class="q-meta"  id="surahName" ></div>
-        <p class="q-translation"  id="translationText"></p>
+      <article class="featured-card reveal">
+        <div class="media">
+          <a class="thumb hover-zoomout" aria-label="Play featured video"  id="fullscreenBtn" aria-hidden="true">
+            <img src="qrcode/qr1.jpg" id="qrImage" alt="QR Code" />
+          </a>
+          <p class="meta" style="margin-top: 10px">Scan to see the beauty of this quote!</p>
         </div>
-        <div  class="reflection" >
-        <div class="q-meta" style="font-style: italic;">Tadabbur of the Verse:</div>
-        <div id="reflectionText"><p></p></div>
+        <div class="content">
+          <!-- <span class="badge">💭 Quote</span> -->
+          <h2>Quote of the Day!</h2>
+
+          <p id="quoteText"></p>
+          <div class="cta-row">
+            <button id="quotebutton" onclick="newQuote()">More Quotes</button>
+          </div>
         </div>
       </article>
     </div>
