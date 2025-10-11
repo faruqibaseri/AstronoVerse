@@ -1,11 +1,11 @@
 /* ========= Sample content data (cards) ========= */
 const cardsData = [
-  {category:"Moon",   title:"Phases of the Moon", surah:"Surah Yaasin", ayat:"Verse 39", img:"https://placehold.co/520x300", link: "phases-of-the-moon.html"},
-  {category:"Moon",   title:"The Movement of the Moon",    surah:"Surah Ash-Shams", ayat:"Verse 2", img:"https://placehold.co/520x300", link: "the-movement-of-the-moon.html"},
-  {category:"Sun", title:"The Sun as the Determiner of Shadows",     surah:"Surah Al-Furqan", ayat:"Verse 45", img:"https://placehold.co/520x300", link: "the-sun-as-the-determiner-of-shadows.html"},
-  {category:"Sun", title:"The Sun and Modern Science",          surah:"Surah Ash-Shams", ayat:"Verse 1", img:"https://placehold.co/520x300", link: "the-sun-and-modern-science.html"},
-  {category:"Stars", title:"The Light of the Stars",  surah:"Surah Al-Waqi‘ah", ayat:"Verse 75", img:"https://placehold.co/520x300", link: "the-light-of-the-stars.html"},
-  {category:"Stars", title:"Neutron Stars and Quasars",    surah:"Surah At-Tariq", ayat:"Verse 3", img:"https://placehold.co/520x300", link: "neutron-stars-and-quasars.html"},
+  {category:"Moon",   title:"Phases of the Moon", surah:"Surah Yaasin", ayat:"Verse 39", img:"2.1 MOON/photo/Moon Phases.png", link: "phases-of-the-moon.html"},
+  {category:"Moon",   title:"The Movement of the Moon",    surah:"Surah Ash-Shams", ayat:"Verse 2", img:"2.1 MOON/photo/The Movement of the Moon.jpg", link: "the-movement-of-the-moon.html"},
+  {category:"Sun", title:"The Sun as the Determiner of Shadows",     surah:"Surah Al-Furqan", ayat:"Verse 45", img:"2.2 SUN/photo/The Sun as the Determiner of Shadows.png", link: "the-sun-as-the-determiner-of-shadows.html"},
+  {category:"Sun", title:"The Sun and Modern Science",          surah:"Surah Ash-Shams", ayat:"Verse 1", img:"2.2 SUN/photo/The Sun and Modern Science.png", link: "the-sun-and-modern-science.html"},
+  {category:"Stars", title:"The Light of the Stars",  surah:"Surah Al-Waqi‘ah", ayat:"Verse 75", img:"2.3 STAR/photo/The Light of the Stars.png", link: "the-light-of-the-stars.html"},
+  {category:"Stars", title:"Neutron Stars and Quasars",    surah:"Surah At-Tariq", ayat:"Verse 3", img:"2.3 STAR/photo/Neutron Stars and Quasars.png", link: "neutron-stars-and-quasars.html"},
 ];
 
 /* ========= DOM refs ========= */
@@ -158,30 +158,48 @@ function observeReveals(){
 
 /* ========= Playlist (switch video) ========= */
 const mainVideo = document.getElementById('mainVideo');
-document.getElementById('playlist').addEventListener('click', (e)=>{
+const playlist = document.getElementById('playlist');
+const playlistItems = document.querySelectorAll('#playlist li');
+
+playlist.addEventListener('click', (e) => {
   const li = e.target.closest('li[data-video]');
-  if(!li) return;
+  if (!li) return;
   const id = li.getAttribute('data-video');
   mainVideo.src = `https://www.youtube.com/embed/${id}`;
 });
 
-  const playlistItems = document.querySelectorAll('#playlist li');
+// Handle active state and video switching
+playlistItems.forEach(item => {
+  item.addEventListener('click', () => {
+    playlistItems.forEach(i => i.classList.remove('is-active'));
+    item.classList.add('is-active');
 
-  playlistItems.forEach(item => {
-    item.addEventListener('click', () => {
-      // Remove 'is-active' from all items
-      playlistItems.forEach(i => i.classList.remove('is-active'));
+    const videoId = item.getAttribute('data-video');
+    mainVideo.src = `https://www.youtube.com/embed/${videoId}`;
+  });
+});
 
-      // Add 'is-active' to the clicked item
+/* ========= Auto-load the first video on page load ========= */
+window.addEventListener('DOMContentLoaded', () => {
+  const targetVideoID = '6AviDjR9mmo'; // <-- put your desired first video ID here
+  const allItems = document.querySelectorAll('#playlist li');
+  const mainVideo = document.querySelector('#mainVideo');
+
+  allItems.forEach(item => {
+    if (item.getAttribute('data-video') === targetVideoID) {
       item.classList.add('is-active');
+      mainVideo.src = `https://www.youtube.com/embed/${targetVideoID}`;
+    } else {
+      item.classList.remove('is-active');
+    }
+  });
+});
 
-      // (Optional) update video iframe based on data-video
-      const videoId = item.getAttribute('data-video');
-      const iframe = document.querySelector('.ratio iframe');
-      if (iframe) {
-        iframe.src = `https://www.youtube.com/embed/${videoId}`;
-      }
-    });
+  /* ========= Auto-load YouTube thumbnails ========= */
+  const thumbnails = document.querySelectorAll('#playlist li img');
+  thumbnails.forEach(img => {
+    const videoId = img.closest('li').getAttribute('data-video');
+    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
   });
 
 // Add event listener
