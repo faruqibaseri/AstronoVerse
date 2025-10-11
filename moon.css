@@ -384,10 +384,10 @@ img#qrImage {display:block; max-width:100%;}
   overflow:hidden; transition:transform .25s ease, box-shadow .25s ease;
 }
 .card:hover{transform:translateY(-4px); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3)}
-.card .thumb{border-radius:0}
+.card .thumb{border-radius:0; text-decoration: none;}
 .card-body{padding:14px}
 .card-meta{display:flex; gap:10px; color:#8f8f8f; font-size:.92rem}
-.card h4{margin:.25rem 0 .35rem}
+.card h4{margin:.25rem 0 .35rem; color: white;}
 .card .actions{display:flex; gap:10px; margin-top:8px}
 
 /* ========= Qur’an */

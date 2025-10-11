@@ -38,10 +38,9 @@ const searchBtn = document.getElementById('searchBtn');
       el.innerHTML = `
         <a class="thumb hover-zoom" href="${c.link}">
           <img src="${c.img}" alt="${c.title}">
-        </a>
         <div class="card-body">
           <h4>${c.title}</h4>
-          <div class="card-meta"><span>${c.surah}</span>·<span>${c.ayat}</span></div>
+          <div class="card-meta"><span>${c.surah}</span>·<span>${c.ayat}</span></div></a>
         </div>
       `;
       cardsWrap.appendChild(el);
