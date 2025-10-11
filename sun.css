@@ -383,7 +383,7 @@ img#qrImage {display:block; max-width:100%;}
   background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(20px);
   overflow:hidden; transition:transform .25s ease, box-shadow .25s ease;
 }
-.card:hover{transform:translateY(-4px); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3)}
+.card:hover{transform: scale(1.015); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3)}
 .card .thumb{border-radius:0; text-decoration: none;}
 .card-body{padding:14px}
 .card-meta{display:flex; gap:10px; color:#8f8f8f; font-size:.92rem}
