@@ -79,29 +79,51 @@ const searchBtn = document.getElementById('searchBtn');
 
 
   /* ========= Tabs logic + animated underline ========= */
-  function moveInkToTab(activeBtn) {
-    if (!activeBtn || !tabInk) return;
-    // ensure parent has position: relative in CSS for this to align
-    tabInk.style.width = `${activeBtn.offsetWidth}px`;
-    tabInk.style.left = `${activeBtn.offsetLeft}px`;
-  }
+function moveInkToTab(activeBtn) {
+  if (!activeBtn || !tabInk) return;
+  tabInk.style.width = `${activeBtn.offsetWidth}px`;
+  tabInk.style.left = `${activeBtn.offsetLeft}px`;
+}
 
-  tabs.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      tabs.forEach(t => t.setAttribute('aria-selected', t === btn ? 'true' : 'false'));
+// 🔹 Function to auto-switch video when tab changes
+function switchVideoByCategory(category) {
+  const allItems = document.querySelectorAll('#playlist li');
+  let matchedItem = null;
 
-      const q = searchInput?.value ?? "";
-      moveInkToTab(btn);
-
-      try {
-        renderCards(btn.dataset.category, q);
-      } catch (err) {
-        console.error('renderCards error:', err);
-      }
-    });
+  allItems.forEach(item => {
+    if (item.dataset.category === category) {
+      matchedItem = item;
+    }
   });
+
+  if (matchedItem) {
+    playlistItems.forEach(i => i.classList.remove('is-active'));
+    matchedItem.classList.add('is-active');
+    const videoId = matchedItem.getAttribute('data-video');
+    mainVideo.src = `https://www.youtube.com/embed/${videoId}`;
+  }
+}
+
+// ====== Tabs logic ======
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    tabs.forEach(t => t.setAttribute('aria-selected', t === btn ? 'true' : 'false'));
+
+    const q = searchInput?.value ?? "";
+    moveInkToTab(btn);
+
+    try {
+      renderCards(btn.dataset.category, q);
+    } catch (err) {
+      console.error('renderCards error:', err);
+    }
+
+    // 🔹 Auto-change the video to match tab category
+    switchVideoByCategory(btn.dataset.category);
+  });
+});
 
 
 /* ========= Scroll reveal ========= */
@@ -181,9 +203,8 @@ playlistItems.forEach(item => {
 
 /* ========= Auto-load the first video on page load ========= */
 window.addEventListener('DOMContentLoaded', () => {
-  const targetVideoID = 'EFO_bsg1sw8'; // <-- put your desired first video ID here
+  const targetVideoID = 'EFO_bsg1sw8';
   const allItems = document.querySelectorAll('#playlist li');
-  const mainVideo = document.querySelector('#mainVideo');
 
   allItems.forEach(item => {
     if (item.getAttribute('data-video') === targetVideoID) {
