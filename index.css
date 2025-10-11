@@ -216,7 +216,7 @@ body::before {
 .hero{align-content: center; padding: 20px; height: 100%;}
 .hero__grid{display:grid; grid-template-columns:1.1fr .9fr; gap:30px; padding:0px 0 28px; margin-left: 100px;}
 .hero__title{font-size:50px; margin:6px 0 10px; line-height: 95px; color: white;}
-.hero__title span{font-family: "Alfa Slab One"; color:#0029a5 ;font-weight: 400;font-size: 100px; -webkit-text-stroke-width: thin; -webkit-text-stroke-color: white;}
+.hero__title span{font-family: "Alfa Slab One"; color:#0031c5 ;font-weight: 400;font-size: 100px; -webkit-text-stroke-width: thin; -webkit-text-stroke-color: white;}
 .hero__lead{color:white; margin:0 0 18px; font-size: 15px;}
 .hero__cta {padding-top: 20px;}
 
