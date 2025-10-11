@@ -205,8 +205,9 @@ img{display:block; max-width:100%; height:auto}
 .btn.small{padding:6px 10px;font-size:0.9rem}
 .btn .fa {color: white; font-size: inherit;}
 
-#munir {font-family: "helvetica"; line-height:2;}
-#kauniyah {font-family: "helvetica"; line-height:2;}
+#munir {font-family: "helvetica"; line-height:2; text-align: justify;}
+#kauniyah {font-family: "helvetica"; line-height:2; text-align: justify;}
+#kauniyah li {margin:25px 0px}
 
 /* wave */
 .wave-wrap{margin-top:14px;border-radius:10px;background:linear-gradient(180deg,#f8fbff,#ffffff);padding:8px;box-shadow:inset 0 2px 6px rgba(2,6,23,0.02)}
@@ -223,7 +224,7 @@ img{display:block; max-width:100%; height:auto}
 #tooltip{position:absolute;pointer-events:none;background:#0f1724;color:#fff;padding:8px 10px;border-radius:8px;font-size:0.95rem;box-shadow:0 8px 30px rgba(2,6,23,0.2);display:none;z-index:90}
 
 /* translation */
-.translation{font-family: "helvetica"; line-height:2; margin-top:20px;background: rgba(255, 255, 255, 0.05); padding:20px 25px;border-radius:20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(20px);}
+.translation{font-family: "helvetica"; line-height:2; text-align: justify; margin-top:20px;background: rgba(255, 255, 255, 0.05); padding:20px 25px;border-radius:20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(20px);}
 .translation h4{margin:0 0 8px;color:var(--bpPrimary-300)}
 details summary{cursor:pointer;color:var(--accent-2);font-weight:600}
 
