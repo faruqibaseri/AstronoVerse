@@ -135,6 +135,7 @@ function show(screen){
 document.querySelectorAll('[data-screen]').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     playSound(sfx.select);
+    stopConfetti();
     const t = btn.getAttribute('data-screen');
     if(t === 'leaderboard') renderBoard();
     show(t);
@@ -188,6 +189,7 @@ function start(){
   grid = buildGrid(gridSize, words);
   renderGrid(grid);
   renderWordList(words, found);
+  stopConfetti();
 
   seconds = 0; paused = false;
   if(timer) clearInterval(timer);
