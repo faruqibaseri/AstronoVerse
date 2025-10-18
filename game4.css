@@ -404,6 +404,7 @@ main {
     background: linear-gradient(180deg, #f0fff6, #e8fff7);
     color: #043927;
     font-weight: 700;
+    padding: 0;
 }
 
 /* choices tray */

@@ -95,7 +95,7 @@ function playSound(audio) {
 }
 
 /* ---------- DOM references ---------- */
-document.getElementById('btn-home').addEventListener('click', ()=> window.location.href='index.html');
+document.getElementById('btn-home').addEventListener('click', ()=> window.location.href='game_menu.html');
 
 const SCREENS = {
   menu: document.getElementById('screen-menu'),
