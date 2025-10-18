@@ -94,16 +94,6 @@ function playSound(audio) {
   audio.play().catch(() => {});
 }
 
-
-
-
-
-
-
-
-
-
-
 /* ====== State ====== */
 
 document.getElementById('btn-home').addEventListener('click', () => {
