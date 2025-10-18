@@ -96,14 +96,6 @@ function playSound(audio) {
 
 
 
-
-
-
-
-
-
-
-
 /* ====== State ====== */
 
 document.getElementById('btn-home').addEventListener('click', () => {
@@ -301,26 +293,37 @@ function endQuiz() {
   show('result');
   finalScoreEl.textContent = `You scored ${score}/${questions.length}`;
 
-  // Play "game finished" sound
+  // Mainkan kedua-dua bunyi
   const gameFinishedSound = document.getElementById('game-finished');
   if (gameFinishedSound) {
     gameFinishedSound.currentTime = 0;
     gameFinishedSound.play().catch(() => {});
   }
 
-  // Start confetti slightly after
+  const applauseSound = document.getElementById('applause-sound');
+  if (applauseSound) {
+    applauseSound.currentTime = 0;
+    applauseSound.play().catch(() => {});
+  }
+
+  // Mulakan confetti
   setTimeout(startConfetti, 500);
 }
 
-function stopGameFinishedSound() {
+function stopAllGameSounds() {
+  // Hentikan kedua-dua bunyi
   const gameFinishedSound = document.getElementById('game-finished');
   if (gameFinishedSound) {
     gameFinishedSound.pause();
     gameFinishedSound.currentTime = 0;
   }
+
+  const applauseSound = document.getElementById('applause-sound');
+  if (applauseSound) {
+    applauseSound.pause();
+    applauseSound.currentTime = 0;
+  }
 }
-
-
 
 /* ====== Leaderboard ====== */
 const BOARD_KEY = 'astro_quiz_board_v1';
