@@ -223,11 +223,11 @@ padding: 20px;
 /* Buttons */
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  padding:10px 16px; border-radius:10px; border:1px solid var(--line); background:#fff;
-  text-decoration:none; color:var(--ink); font-weight:600; box-shadow:var(--shadow);
-  transition:transform 0.3s, box-shadow 0.3s; justify-self: center; cursor: pointer;
+  padding:10px 16px; border-radius:10px; background: rgba(255, 255, 255, 0.05);
+  text-decoration:none; font-weight:600;color: white;border: none;
+  transition:transform 0.3s, box-shadow 0.3s; justify-self: center; cursor: pointer;;backdrop-filter: blur(20px);
 }
-.btn:hover{box-shadow:var(--shadow);transform: translateY(-5px);transform: scale(1.05);}
+.btn:hover{box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);transform: translateY(-5px);transform: scale(1.05);}
 .btn.ghost{background:#eef4ff; color:var(--text)}
 .btn.primary{background: linear-gradient(180deg, #5b84ff, #3866ff);color: #fff;width: 130px;height: 50px;border-color: #3866ff;font-size: medium;}
 .btn.danger{background:linear-gradient(135deg,#ff6b6b,#ff4d4f)}
