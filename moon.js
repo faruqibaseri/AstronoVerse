@@ -1,11 +1,11 @@
 /* ========= Sample content data (cards) ========= */
 const cardsData = [
-  {category:"Moon",   title:"Phases of the Moon", surah:"Surah Yaasin", ayat:"Verse 39", img:"2.1 MOON/photo/Moon Phases.png", link: "phases-of-the-moon.html"},
-  {category:"Moon",   title:"The Movement of the Moon",    surah:"Surah Ash-Shams", ayat:"Verse 2", img:"2.1 MOON/photo/The Movement of the Moon.jpg", link: "the-movement-of-the-moon.html"},
-  {category:"Sun", title:"The Sun as the Determiner of Shadows",     surah:"Surah Al-Furqan", ayat:"Verse 45", img:"2.2 SUN/photo/The Sun as the Determiner of Shadows.png", link: "the-sun-as-the-determiner-of-shadows.html"},
-  {category:"Sun", title:"The Sun and Modern Science",          surah:"Surah Ash-Shams", ayat:"Verse 1", img:"2.2 SUN/photo/The Sun and Modern Science.png", link: "the-sun-and-modern-science.html"},
-  {category:"Stars", title:"The Light of the Stars",  surah:"Surah Al-Waqi‘ah", ayat:"Verse 75", img:"2.3 STAR/photo/The Light of the Stars.png", link: "the-light-of-the-stars.html"},
-  {category:"Stars", title:"Neutron Stars and Quasars",    surah:"Surah At-Tariq", ayat:"Verse 3", img:"2.3 STAR/photo/Neutron Stars and Quasars.png", link: "neutron-stars-and-quasars.html"},
+  {category:"Moon",   title:"Phases of the Moon", surah:"Surah Yaasin", ayat:"Verse 39", img:"2.1 MOON/photo/Moon Phases.webp", link: "phases-of-the-moon.html"},
+  {category:"Moon",   title:"The Movement of the Moon",    surah:"Surah Ash-Shams", ayat:"Verse 2", img:"2.1 MOON/photo/The Movement of the Moon.webp", link: "the-movement-of-the-moon.html"},
+  {category:"Sun", title:"The Sun as the Determiner of Shadows",     surah:"Surah Al-Furqan", ayat:"Verse 45", img:"2.2 SUN/photo/The Sun as the Determiner of Shadows.webp", link: "the-sun-as-the-determiner-of-shadows.html"},
+  {category:"Sun", title:"The Sun and Modern Science",          surah:"Surah Ash-Shams", ayat:"Verse 1", img:"2.2 SUN/photo/The Sun and Modern Science.webp", link: "the-sun-and-modern-science.html"},
+  {category:"Stars", title:"The Light of the Stars",  surah:"Surah Al-Waqi‘ah", ayat:"Verse 75", img:"2.3 STAR/photo/The Light of the Stars.webp", link: "the-light-of-the-stars.html"},
+  {category:"Stars", title:"Neutron Stars and Quasars",    surah:"Surah At-Tariq", ayat:"Verse 3", img:"2.3 STAR/photo/Neutron Stars and Quasars.webp", link: "neutron-stars-and-quasars.html"},
 ];
 
 /* ========= DOM refs ========= */
@@ -33,7 +33,9 @@ const searchBtn = document.getElementById('searchBtn');
 
     filtered.forEach((c, i) => {
       const el = document.createElement('article');
-      el.className = 'card reveal tilt';
+      // Only add 'tilt' class if not on mobile, check is done at initial load in init
+      const tiltClass = window.matchMedia('(min-width: 901px)').matches ? 'tilt' : '';
+      el.className = `card reveal ${tiltClass}`;
       el.style.transitionDelay = `${(i % 3) * 0.05}s`;
       el.innerHTML = `
         <a class="thumb hover-zoom" href="${c.link}">
@@ -46,7 +48,13 @@ const searchBtn = document.getElementById('searchBtn');
       cardsWrap.appendChild(el);
     });
 
-    observeReveals(); // re-attach animations
+    // Only observe reveals if not on mobile (animations are removed via CSS on mobile)
+    if (window.matchMedia('(min-width: 901px)').matches) {
+        observeReveals();
+    } else {
+        // For mobile, ensure all are 'shown' immediately since CSS removes transitions
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
+    }
   }
 
   const fullscreenBtn = document.getElementById("fullscreenBtn");
@@ -125,56 +133,72 @@ tabs.forEach(btn => {
 });
 
 
-/* ========= Scroll reveal ========= */
+/* ========= Scroll reveal (Optimization: only run on non-mobile) ========= */
 let revealObserver;
 function observeReveals(){
+  // Check for reduced motion preference (CSS handles this, but good practice)
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
     return;
   }
-  if (revealObserver) revealObserver.disconnect();
-  revealObserver = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('show');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  // Optimization: Only create and observe for non-mobile views (e.g., above 900px)
+  if (window.matchMedia('(min-width: 901px)').matches) {
+    if (revealObserver) revealObserver.disconnect();
+    revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  }
 }
 
-/* Scroll reveal */
+/* Scroll reveal (Using ro for initial reveal, replacing with conditional logic) */
   const ro = new IntersectionObserver((ents)=>{
     ents.forEach(ent=>{
       if(ent.isIntersecting){
         ent.target.classList.add('is-visible');
         ro.unobserve(ent.target);
+      } else if (!window.matchMedia('(min-width: 901px)').matches) {
+        // Mobile fallback: ensure visibility immediately since CSS removes transitions
+        ent.target.classList.add('is-visible');
       }
     });
   }, {threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-  /* Tilt effect (subtle) */
-  document.querySelectorAll('.tilt').forEach(el => {
-    let rAF;
-    function onMove(e){
-      const rect = el.getBoundingClientRect();
-      const cx = rect.left + rect.width/2;
-      const cy = rect.top + rect.height/2;
-      const dx = (e.clientX - cx) / rect.width;
-      const dy = (e.clientY - cy) / rect.height;
-      const rx = (dy * -6).toFixed(2);
-      const ry = (dx * 6).toFixed(2);
-      if(rAF) cancelAnimationFrame(rAF);
-      rAF = requestAnimationFrame(()=>{
-        el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+  // Only observe if not on mobile (CSS handles the instant "reveal" on mobile)
+  if (window.matchMedia('(min-width: 901px)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+  }
+
+
+  /* Tilt effect (subtle) (Optimization: only run on non-mobile) */
+  if (window.matchMedia('(min-width: 901px)').matches) {
+      document.querySelectorAll('.tilt').forEach(el => {
+          let rAF;
+          function onMove(e){
+              const rect = el.getBoundingClientRect();
+              const cx = rect.left + rect.width/2;
+              const cy = rect.top + rect.height/2;
+              const dx = (e.clientX - cx) / rect.width;
+              const dy = (e.clientY - cy) / rect.height;
+              const rx = (dy * -6).toFixed(2);
+              const ry = (dx * 6).toFixed(2);
+              if(rAF) cancelAnimationFrame(rAF);
+              rAF = requestAnimationFrame(()=>{
+                  el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+              });
+          }
+          function reset(){ el.style.transform = 'none'; }
+          el.addEventListener('mousemove', onMove);
+          el.addEventListener('mouseleave', reset);
       });
-    }
-    function reset(){ el.style.transform = 'none'; }
-    el.addEventListener('mousemove', onMove);
-    el.addEventListener('mouseleave', reset);
-  });
+  }
 
 
 /* ========= Playlist (switch video) ========= */
@@ -232,7 +256,7 @@ viewAllBtn.addEventListener('click', () => {
 });
 
 
-/* ========= Mobile menu (basic) ========= */
+/* ========= Mobile menu (basic) - keep original logic */
 const burger = document.querySelector('.hamburger');
 const nav = document.querySelector('.main-nav');
 burger.addEventListener('click', ()=>{
@@ -247,8 +271,16 @@ window.addEventListener('load', ()=>{
   const active = document.querySelector('.tab.is-active');
   moveInkToTab(active);
   renderCards('Moon');
-  observeReveals();
+
+  // Only call observeReveals on load for non-mobile
+  if (window.matchMedia('(min-width: 901px)').matches) {
+      observeReveals();
+  } else {
+      // For mobile, ensure all are 'shown' immediately
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
+  }
 });
+
 window.addEventListener('resize', ()=>{
   const active = document.querySelector('.tab.is-active');
   if (active) moveInkToTab(active);
@@ -307,12 +339,12 @@ const quotes = [
 ];
 
 const qrImages = [
-  "qrcode/qr1.jpg",
-  "qrcode/qr2.jpg",
-  "qrcode/qr3.jpg",
-  "qrcode/qr4.jpg",
-  "qrcode/qr5.jpg",
-  "qrcode/qr6.jpg",
+  "qrcode/qr1.webp",
+  "qrcode/qr2.webp",
+  "qrcode/qr3.webp",
+  "qrcode/qr4.webp",
+  "qrcode/qr5.webp",
+  "qrcode/qr6.webp",
 ];
 
 function newQuote() {
@@ -386,5 +418,3 @@ window.addEventListener('load', () => {
 
   setTimeout(() => card.classList.add('show'), 100);
 });
-
-

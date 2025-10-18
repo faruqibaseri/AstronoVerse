@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Challenge - AstronoVerse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/ethnocentric" rel="stylesheet">
+  <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script> 
+  <link rel="stylesheet" href="game1.css" />
+</head>
+<body>
+  <!-- Background -->
+  <div class="bg"></div>
+
+  <canvas id="confetti"></canvas>
+
+  <!-- Header -->
+  <header class="topbar app-header">
+    <div class="topbar__inner">
+      <a href="index.html" class="brand" aria-label="AstronoVerse home">
+        <img class="brand__logo" src="1. HOMEPAGE/logo.webp" alt="Brand Logo">
+      </a>
+    
+    <nav class="nav top-nav">
+      <a class="nav__link nav-btn" id="btn-home">Other Games</a>
+      <a class="nav__link nav-btn" data-target="menu">Menu</a>
+      <a class="nav__link nav-btn" data-target="howto">How to Play</a>
+      <a class="nav__link nav-btn" data-target="leaderboard">Leaderboard</a>
+      <a class="nav__link nav-btn" id="toggle-music-desktop">🎵 Music</a>
+      <a class="nav__link nav-btn" id="toggle-sound-desktop">🔊 Sound</a>
+
+      <!-- Add background music -->
+      <audio id="bg-music" src="3. GAMES/audio/music_bg1.mp3" loop></audio>
+    </nav>
+
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+  <span class="hamburger-line"></span>
+  <span class="hamburger-line"></span>
+  <span class="hamburger-line"></span>
+</button>
+    </div>
+
+    <nav id="mobileMenu" class="mobile" aria-label="Mobile">
+      <a href="game_menu.html" class="nav__link nav-btn" id="btn-home">Other Games</a>
+      <a class="nav__link nav-btn" data-target="menu">Menu</a>
+      <a class="nav__link nav-btn" data-target="howto">How to Play</a>
+      <a class="nav__link nav-btn" data-target="leaderboard">Leaderboard</a>
+      <a class="nav__link nav-btn" id="toggle-music-mobile">🎵 Music</a>
+      <a class="nav__link nav-btn" id="toggle-sound-mobile" style="border-bottom: 0;">🔊 Sound</a>
+
+      <audio id="bg-music" src="3. GAMES/audio/music_bg1.mp3" loop></audio>
+    </nav>
+
+  </header>
+
+  <!-- Screens -->
+  <main>
+    <!-- MENU -->
+    <section id="screen-menu" class="screen active">
+      <div class="card">
+        <h2>Welcome to the Quiz Challenge! 🚀</h2>
+        <p>Test your knowledge about the Sun, Moon & Stars. Collect points and climb the Leaderboard!</p>
+        <div class="menu-actions">
+          <button class="btn primary" id="btn-start">Start Quiz</button>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO PLAY -->
+    <section id="screen-howto" class="screen">
+      <div class="card">
+        <h2>How to Play 🧭</h2>
+        <ul class="howto-list">
+          <li>Each question has <strong>20 seconds</strong>. Answer before time runs out.</li>
+          <li>Select your answer. The system will highlight <span class="legend correct">correct</span> / <span class="legend wrong">wrong</span>.</li>
+          <li>Watch the <strong>progress bar</strong> & <strong>live score</strong> at the top.</li>
+          <li>At the end → Enter your name & save your score to the <strong>Leaderboard</strong>.</li>
+        </ul>
+        <div class="menu-actions">
+          <button class="btn" data-target="menu">Back to Menu</button>
+          <button class="btn primary" id="btn-start-2">Start Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="screen-quiz" class="screen">
+      <div class="hud">
+        <div class="hud-group">
+          <span class="label">Question</span>
+          <span id="qIndex" class="value">1/10</span>
+        </div>
+        <div class="progress-wrap">
+          <div id="progress" class="progress"></div>
+        </div>
+        <div class="hud-group">
+          <span class="label">Score</span>
+          <span id="score" class="value">0</span>
+        </div>
+        <div class="hud-group timer">
+          <span class="label">Time</span>
+          <span id="timer" class="value">20s</span>
+        </div>
+      </div>
+
+      <div class="quiz-card card">
+        <h3 id="question">Loading…</h3>
+        <div id="options" class="options"></div>
+        <p id="info" class="info"></p>
+        <div class="actions">
+          <button class="btn" id="btn-prev">⟵ Prev</button>
+          <button class="btn" id="btn-next">Next ⟶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="screen-result" class="screen">
+      <div class="card result-card">
+        <h2>Results 🎉</h2>
+        <p id="final-score">You scored 0/0</p>
+        <form id="save-form" class="save-form">
+          <input type="text" id="player-name" placeholder="Your name" maxlength="20" required />
+          <button class="btn primary" type="submit">Save to Leaderboard</button>
+        </form>
+        <div class="menu-actions">
+          <button class="btn" data-target="menu">Menu</button>
+          <button class="btn" id="btn-retry">Play Again</button>
+          <button class="btn" data-target="leaderboard">View Leaderboard</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section id="screen-leaderboard" class="screen">
+      <div class="card">
+        <h2>🏆 Leaderboard</h2>
+        <ol id="board" class="board"></ol>
+        <div class="menu-actions">
+          <button class="btn" data-target="menu">Menu</button>
+          <button class="btn danger" id="clear-board">Clear Leaderboard</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Audio -->
+  <audio id="sfx-correct" src="3. GAMES/audio/correct.mp3" preload="auto"></audio>
+  <audio id="sfx-wrong"   src="3. GAMES/audio/wrong.mp3" preload="auto"></audio>
+  <audio id="sfx-click"   src="3. GAMES/audio/click_game.mp3" preload="auto"></audio>
+  <audio id="game-finished"   src="3. GAMES/audio/game_finished.mp3" preload="auto"></audio>
+
+  <script src="game1.js"></script>
+</body>
+</html>

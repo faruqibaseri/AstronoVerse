@@ -34,7 +34,7 @@ body::before {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: url("1. HOMEPAGE/photo/background.jpg") no-repeat center center / cover;
+  background: url("1. HOMEPAGE/photo/background.webp") no-repeat center center / cover;
   opacity: 90%; /* adjust transparency here */
   z-index: -1; /* keeps it behind content */
 }
@@ -45,19 +45,19 @@ body::before {
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
   padding:10px 16px; border-radius:10px; border:1px solid var(--line); background:#fff;
   text-decoration:none; color:var(--ink); font-weight:600; box-shadow:var(--shadow);
-  transition:transform 0.3s, box-shadow 0.3s;
+  transition:transform 0.3s, box-shadow 0.3s; justify-self: center;
 }
 .btn:hover{ box-shadow:var(--shadow);transform: translateY(-5px);transform: scale(1.05);}
 .btn--primary{background:linear-gradient(180deg, #5b84ff, #3866ff); color:#fff; border-color:#3866ff; transition:transform 0.3s, box-shadow 0.3s;}
 .btn--primary :hover{transform: translateY(-5px) scale(1.05);}  
-.button-learn{max-width: 100%; padding-top: 60px; justify-self: center;}
-.btn.btn--ghost{ background:#fff; border:1px solid var(--line); justify-self: center;}
+.button-learn{margin-left: auto; margin-right: auto; max-width: 100%; padding-top: 60px;}
+.btn.btn--ghost{margin-left: auto; margin-right: auto; background:#fff; border:1px solid var(--line);}
 .center{display:flex; justify-content:center}
-.button-explore {justify-self: center; padding-bottom:80px;}
+.button-explore {display: grid; margin-left: auto; margin-right: auto;padding-bottom:80px;}
 .games-button{width: 100%;padding-bottom: 45px; text-align: center;}
 
 /* Topbar */
-.topbar{position:sticky; top:40px; z-index:40; background: rgba(255, 255, 255, 0.1);border-radius: 20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(25px);width: 80%;justify-self: center; justify-items: center;}
+.topbar{margin-left: auto; margin-right: auto; position:sticky; top:40px; z-index:40; background: rgba(255, 255, 255, 0.1);border-radius: 20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);backdrop-filter: blur(25px);width: 80%; justify-items: center;}
 .topbar__inner{display:flex; align-items:center; justify-content:space-between; height: 100px; max-width: 1140px; width: 90%;}
 .brand{display:flex; align-items:center; gap:10px; font-weight:700; color:var(--ink)}
 .brand__logo {
@@ -220,8 +220,18 @@ body::before {
 .hero__lead{color:white; margin:0 0 18px; font-size: 15px;}
 .hero__cta {padding-top: 20px;}
 
-/*background video*/
-#bg-video{
+/*background video/image container for swap*/
+.hero__bg-media {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 10px;
+}
+.hero__bg-media #bg-video{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -265,6 +275,27 @@ body::before {
 .planet__text p{color:rgb(247 247 247); margin:8px 0 14px; text-align: justify;}
 
 /* Features (3 cards) */
+/* Container for video/image swap in feature cards */
+.media-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.media-container .feature-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Hide static image by default on desktop */
+.feature-image-mobile {
+    display: none; 
+}
+
+
 .features__grid{display:grid; gap:18px; grid-template-columns:repeat(3, 1fr)}
 .feature{background:rgba(255, 255, 255, 0.05); border-radius:20px; padding:20px 14px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);backdrop-filter: blur(20px);}
 .feature__img, .ph-card{height:200px; border-radius:20px; display:grid; place-items:center; color:#7b8093}
@@ -300,7 +331,7 @@ body::before {
 .foot__social .ico{border-radius:6px; background-color: transparent; color:#5b84ff;}
 .foot__links{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content: center; padding-bottom: 20px;}
 .foot__links a{color:#ededed; text-decoration:none}
-.foot__bottom{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:12px 12px; border-top:1px solid var(--line); justify-self: center;}
+.foot__bottom{margin-left: auto; margin-right: auto; display:grid; justify-content:space-between; align-items:center; gap:16px; padding:12px 12px; border-top:1px solid var(--line); justify-content: center;}
 .fa {font-size: 30px;}
 
 .toTop{
@@ -310,8 +341,136 @@ body::before {
     margin-right: 20px;
 }
 
+/* GALLERY STYLES (Desktop/Large Screen - 3D Rotation) */
+.discovery {
+align-content: center;
+}
+.gallery-container {
+  position: relative;
+  perspective: 1800px;
+  flex-direction: column;
+  align-items: center;
+  padding: 70px 0px 0px 0px;
+  place-self: center;
+  display: grid;
+  grid-template-columns:1.1fr .9fr;
+  overflow: hidden;
+  height: max-content;
+  padding-bottom: 40px;
+}
+.gallery-assembly {
+  --n: 8; /* Set by JS */
+  top:50%;
+  transform-style: preserve-3d;
+  transition: transform 0.1s linear;
+  align-self: center;
+  padding: 20px;
+  height: 490px;
+  place-items: center;
+  min-height: max-content;
+}
+.gallery-item {
+  --w: clamp(150px, min(50vh, 25vw), 250px);
+  --z: calc(var(--f, 1.25) * -.5 * var(--w) / tan(.5turn / var(--n)));
+  position: absolute;
+  width: var(--w);
+  aspect-ratio: 2/3;
+  transform: 
+    rotateY(calc(var(--i) * 1turn / var(--n) + var(--rotation, 0turn))) 
+    translateZ(calc(var(--z) + 50px));
+  transition: all 0.5s ease;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  overflow: hidden; 
+}
+.gallery-figure {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--pos);
+  filter: saturate(1.1) contrast(1.05);
+}
+
+
+  .chat-greeting {
+    position: fixed;
+    bottom: 100px; /* adjust to be above the chat bubble */
+    right: 30px;
+    background: #fff;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-size: 14px;
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeInOut 6s ease forwards;
+  }
+
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    10%, 80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(10px); }
+  }
+    
 /* Responsive */
 @media (max-width: 902px){
+  /* 1. Video Replacement and Animation Removal */
+  
+  /* Main Hero Background: Hide video */
+  .hero__bg-media #bg-video {
+    display: none; 
+  }
+  .hero__bg-media {
+    /* Let the body's global background image show */
+    background: none; 
+  }
+  
+  /* Feature Card Videos: Hide video */
+  .media-container .feature-video {
+    display: none; 
+  }
+  
+  /* Feature Card Images: Show static image */
+  .feature-image-mobile {
+      display: block; /* Show the static image */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute; 
+      top: 0;
+      left: 0;
+  }
+  
+  /* Feature card container background fallback */
+  .media-container {
+    background: none;
+  }
+    
+  /* 2. Remove Unnecessary Animations for Optimization */
+  .card:hover, .feature:hover, .stat:hover, .btn:hover {
+    transform: none !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
+  }
+  
+  .feature h4:hover, .feature p:hover, .content :hover {
+    transform: none !important;
+  }
+  
+  /* Disable Tilt effect */
+  .tilt {
+    transform: none !important;
+  }
+    
+  /* Existing mobile styles */
   .nav{display:none}
   .hamburger{display:block; border: none; right:10px;}
   .vm__grid{grid-template-columns:1fr}
@@ -337,99 +496,56 @@ body::before {
 align-content: center;
 }
 
-.gallery-wrapper {
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-    }
-    
+/* Gallery Override: Horizontal Scroll on Mobile/Tablet */
+@media (max-width: 1274px) {
     .gallery-container {
-      position: relative;
-      perspective: 1800px;
-      flex-direction: column;
-      align-items: center;
-      padding: 70px 0px 0px 0px;
-      place-self: center;
-      display: grid;
-      grid-template-columns:1.1fr .9fr;
-      overflow: hidden;
-      height: max-content;
-      padding-bottom: 40px;
-    }
-    
-.gallery-assembly {
-  --n: 8; /* Set by JS */
-  top:50%;
-  transform-style: preserve-3d;
-  transition: transform 0.1s linear;
-  align-self: center;
-  padding: 20px;
-  height: 490px;
-  place-items: center;
-}
-
-.gallery-item {
-  --w: clamp(150px, min(50vh, 25vw), 250px);
-  --z: calc(var(--f, 1.25) * -.5 * var(--w) / tan(.5turn / var(--n)));
-  position: absolute;
-  width: var(--w);
-  aspect-ratio: 2/3;
-  transform: 
-    rotateY(calc(var(--i) * 1turn / var(--n) + var(--rotation, 0turn))) 
-    translateZ(calc(var(--z) + 50px));
-  transition: all 0.5s ease;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
-  overflow: hidden; 
-}
-    
-    .gallery-figure {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      backface-visibility: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-    }
-    
-    .gallery-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: var(--pos);
-      filter: saturate(1.1) contrast(1.05);
-    }
-    
-    @media (max-width: 1274px) {
-      .title h1 {
-        font-size: 2.2rem;
-      }
-      
-      .gallery-container {
-        height: 50vh;
-      }
-    }
-
-      @media (max-width: 1274px) {
-    .gallery-container {
-      height: auto;
-      grid-template-columns: 1fr;
+      perspective: none; /* Disable 3D perspective */
+      height: auto !important; /* Allow content to dictate height */
+      grid-template-columns: 1fr; /* Single column layout for discovery text and gallery */
       grid-template-rows: auto auto;
-      /* gap: 40px; */
       padding: 20px 0;
     } 
-    .hero__grid{grid-template-columns:1fr; margin-left: 0px;}
     
     .gallery-assembly {
-      margin-top: 50px;
-      height: 40vh;
+      /* New Horizontal Scrolling Implementation */
+      display: flex; 
+      flex-wrap: nowrap; 
+      overflow-x: scroll; /* Enable horizontal scrolling */
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch; /* For smoother iOS scrolling */
+      
+      /* Reset 3D properties */
+      transform-style: flat;
+      transform: none !important;
+      position: static;
+      top: auto;
+      
+      height: auto; /* Important: reset fixed height for content flow */
+      margin-top: 40px;
+      padding: 0 20px 15px 20px; /* Padding for scroll visibility */
+      gap: 15px; /* Spacing between cards */
+    }
+
+    .gallery-item {
+      /* Configure flex item for horizontal scroll */
+      position: static !important;
+      flex-shrink: 0; /* Prevents shrinking */
+      
+      /* Set a consistent, readable width for mobile cards */
+      width: clamp(150px, 35vw, 250px);
+      aspect-ratio: 2/3;
+      
+      /* Reset all transforms/shadows */
+      transform: none !important; 
+      filter: none;
     }
     
-    .gallery-item {
-      --w: clamp(100px, 35vw, 180px);
+    .gallery-figure {
+      position: static;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+    
+    .hero__grid{grid-template-columns:1fr; margin-left: 0px;}
     
     .discovery {
       text-align: center;
@@ -440,15 +556,16 @@ align-content: center;
       padding: 0;
     }
   }
-  
+
+  /* Refinements for smaller screens */
   @media (max-width: 480px) {
     .gallery-assembly {
-      height: 35vh;
+      height: auto; 
       margin-top: 30px;
+      padding: 0 15px 15px 15px;
     }
-    
     .gallery-item {
-      --w: clamp(100px, 35vw, 180px);
+      width: 150px; /* Lock to a smaller width for very small screens */
     }
     
     .section__title {
@@ -464,21 +581,9 @@ align-content: center;
 
     @media (max-width: 344px) {
     .gallery-assembly {
-      height: 35vh;
-      margin-top: 30px;
+      height: auto; 
     }
     
-    .gallery-item {
-      --w: clamp(100px, 35vw, 180px);
-    }
-    
-    .section__title {
-      font-size: 1.8rem;
-    }
-    
-    .section__lead {
-      font-size: 1rem;
-    }
     .hero__grid{grid-template-columns:1fr; margin-left: 0px;}
       .hero__title{font-size:20px; line-height: 45px;}
   .hero__lead{font-size:15px;}
@@ -486,5 +591,21 @@ align-content: center;
   .topbar {width: max-content;}
   }
 
-
+  @media (max-width: 902px){
+  /* FIX: Hide video and show mobile background image */
+  #bg-video {
+    display: none;
+  }
   
+  .hero__bg-media {
+    /* Apply image from data-mobile-src path */
+    background: url("1. HOMEPAGE/photo/background.webp") no-repeat center center / cover;
+    /* Ensure proper positioning for the image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    z-index: -1;
+  }}

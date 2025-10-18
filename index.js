@@ -32,8 +32,13 @@ if (burger && mobile) {
   }, {threshold:.12});
   document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-  /* Tilt effect (subtle) */
+  /* Tilt effect (subtle) - Optimized for mobile by disabling on small screens */
+  const isMobile = window.matchMedia("(max-width: 902px)").matches;
+  
   document.querySelectorAll('.tilt').forEach(el => {
+    // Skip adding listeners on mobile to save performance
+    if (isMobile) return; 
+    
     let rAF;
     function onMove(e){
       const rect = el.getBoundingClientRect();
@@ -69,54 +74,55 @@ if (burger && mobile) {
       items: [
         {
           title: "Neutron-star",
-          image: "1. HOMEPAGE/photo/Neutron-star.jpg",
+          image: "1. HOMEPAGE/photo/Neutron-star.webp",
           position: "47% 35%",
           author: "Neutron-star"
         },
         {
           title: "moon1",
-          image: "1. HOMEPAGE/photo/moon1.jpg",
+          image: "1. HOMEPAGE/photo/moon1.webp",
           position: "75% 65%",
           author: "moon1"
         },
         {
           title: "sun",
-          image: "1. HOMEPAGE/photo/sun.jpg",
+          image: "1. HOMEPAGE/photo/sun.webp",
           position: "53% 43%",
           author: "sun"
         },
         {
           title: "Quasar-star",
-          image: "1. HOMEPAGE/photo/Quasar-star.jpg",
+          image: "1. HOMEPAGE/photo/Quasar-star.webp",
           position: "50% 30%",
           author: "Quasar-star"
         },
         {
           title: "sun-earth1",
-          image: "1. HOMEPAGE/photo/sun-earth1.jpg",
+          image: "1. HOMEPAGE/photo/sun-earth1.webp",
           position: "60% 50%",
           author: "sun-earth1"
         },
         {
           title: "Quasar-star2",
-          image: "1. HOMEPAGE/photo/Quasar-star2.jpg",
+          image: "1. HOMEPAGE/photo/Quasar-star2.webp",
           position: "45% 30%",
           author: "Quasar-star2"
         },
         {
           title: "moon2",
-          image: "1. HOMEPAGE/photo/moon2.png",
+          image: "1. HOMEPAGE/photo/moon2.webp",
           position: "50% 20%",
           author: "moon2"
         },
         {
           title: "sun-earth2",
-          image: "1. HOMEPAGE/photo/sun-earth2.jpg",
+          image: "1. HOMEPAGE/photo/sun-earth2.webp",
           position: "50% 35%",
           author: "sun-earth2"
         }
       ],
-      rotationSpeed: 0.001
+      // Reduced rotation speed for a slightly less CPU-intensive desktop experience
+      rotationSpeed: 0.0005 
     };
 
     // Initialize gallery
@@ -144,8 +150,11 @@ if (burger && mobile) {
         gallery.appendChild(galleryItem);
       });
       
-      // Start rotation
-      startRotation();
+      // *** Optimization Check: Only start rotation on non-mobile devices ***
+      const isMobileScreen = window.matchMedia("(max-width: 902px)").matches;
+      if (!isMobileScreen) {
+          startRotation();
+      }
     }
 
     // Rotation animation
@@ -154,6 +163,9 @@ function startRotation() {
   let lastTime = 0;
   
   function animateGallery(timestamp) {
+    // Check again inside the loop just in case the screen size changes
+    if (window.matchMedia("(max-width: 902px)").matches) return;
+
     if (!lastTime) lastTime = timestamp;
     const delta = timestamp - lastTime;
     lastTime = timestamp;
@@ -192,3 +204,16 @@ document.querySelectorAll(".mobile__toggle").forEach(btn => {
       window.location.href = url;
     }, 500);
   }
+
+    window.addEventListener('load', () => {
+    // Wait 5 seconds before showing greeting
+    setTimeout(() => {
+      const greeting = document.createElement('div');
+      greeting.className = 'chat-greeting';
+      greeting.textContent = "👋 Hi! I'm here to help😊";
+      document.body.appendChild(greeting);
+
+      // Remove after animation
+      setTimeout(() => greeting.remove(), 6000);
+    }, 3000);
+  });
