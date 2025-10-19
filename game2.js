@@ -383,6 +383,7 @@ document.getElementById('btn-restart').addEventListener('click', ()=>{
 document.getElementById('btn-play-again').addEventListener('click', ()=>{
   playSfx(sfx.click);
   setupGame(diff);
+  stopConfetti();
 });
 
 document.getElementById('save-form').addEventListener('submit', (e)=>{
