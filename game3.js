@@ -2,7 +2,8 @@
 (function(){
   const yearEl = document.getElementById('year');
   if(yearEl) yearEl.textContent = new Date().getFullYear();
-})
+})(); // Added () for immediate execution
+
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -30,6 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // === Sound & Music Controls ===
 
+let musicOn = true;
+let soundOn = true; // Initialize soundOn
+
+const bgMusic = document.getElementById('bg-music');
+
+// Get all toggle buttons (desktop + mobile)
+const toggleMusicBtns = document.querySelectorAll('#toggle-music-desktop, #toggle-music-mobile');
+const toggleSoundBtns = document.querySelectorAll('#toggle-sound-desktop, #toggle-sound-mobile');
+
+// --- Auto play music on page load ---
 window.addEventListener('load', () => {
   bgMusic.play().catch(() => {
     console.log("Autoplay blocked. Waiting for user interaction...");
@@ -41,19 +52,6 @@ function startMusicOnce() {
   bgMusic.play().catch(() => {});
 }
 
-
-let musicOn = true;
-
-const bgMusic = document.getElementById('bg-music');
-
-// Get all toggle buttons (desktop + mobile)
-const toggleMusicBtns = document.querySelectorAll('#toggle-music-desktop, #toggle-music-mobile');
-const toggleSoundBtns = document.querySelectorAll('#toggle-sound-desktop, #toggle-sound-mobile');
-
-// --- Auto play music on page load ---
-window.addEventListener('load', () => {
-  bgMusic.play().catch(() => {}); // Catch autoplay block
-});
 
 // --- Music toggle (both desktop & mobile) ---
 toggleMusicBtns.forEach(btn => {
@@ -125,7 +123,7 @@ const sfx = {
   found:  document.getElementById('sfx-found'),
   win:    document.getElementById('sfx-win')
 };
-let soundOn = true;
+// soundOn is initialized at the top of the script
 
 /* ====== Navigation ====== */
 function show(screen){
@@ -297,10 +295,20 @@ function checkPath(){
 
   const line = [];
   let x=x1, y=y1;
+  
+  let steps = 0;
+  const maxSteps = Math.max(Math.abs(x2-x1), Math.abs(y2-y1)) + 2; 
+
   while(true){
+    if (steps++ > maxSteps) {
+      console.warn("Selection path reconstruction failed or was non-linear/too long, exiting.");
+      return; 
+    }
+
     line.push({x,y});
     if(x===x2 && y===y2) break;
     x += dx; y += dy;
+    
     if(Math.abs(x-x1)!==Math.abs(y-y1) && !(x===x1 || y===y1)) return;
   }
 
