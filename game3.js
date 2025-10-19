@@ -121,7 +121,8 @@ const boardEl = document.getElementById('board');
 const sfx = {
   select: document.getElementById('sfx-select'),
   found:  document.getElementById('sfx-found'),
-  win:    document.getElementById('sfx-win')
+  win:    document.getElementById('sfx-win'),
+  finish: document.getElementById('sfx-finished')
 };
 // soundOn is initialized at the top of the script
 
@@ -363,6 +364,7 @@ const MESSAGES = [
 function win(){
   clearInterval(timer);
   playSound(sfx.win);
+  playSound(sfx.finish);
   const msg = MESSAGES[Math.floor(Math.random()*MESSAGES.length)];
   resultTitle.textContent = '🎉 Well done!';
   resultText.textContent = `You found all ${words.length} words in ${timeLabel.textContent}!`;
