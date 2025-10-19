@@ -130,6 +130,7 @@ const sfx = {
   wrong:   document.getElementById('sfx-wrong'),
   click:   document.getElementById('sfx-click'),
   applause: document.getElementById('sfx-applause'),
+  finished: document.getElementById('sfx-finished'),
 };
 let soundOn = true;
 
@@ -376,6 +377,7 @@ function updateProgress(){
 function endGame(success){
   if(timerId){ clearInterval(timerId); timerId=null; }
   playSfx(success ? sfx.applause : sfx.applause);
+  playSfx(sfx.finished);
   document.getElementById('final-score').textContent = `You scored ${score}`;
   window.__finalScore = score;
   startConfetti();
