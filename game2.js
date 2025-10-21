@@ -122,6 +122,7 @@ const sfx = {
   wrong: document.getElementById('sfx-wrong'),
   win:   document.getElementById('sfx-win'),
   click: document.getElementById('sfx-click'),
+  applause: document.getElementById('sfx-applause'),
 };
 let soundOn = true;
 
@@ -261,6 +262,7 @@ function onFlip(tile){
 function endGame(){
   clearTimer();
   playSfx(sfx.win);
+  playSfx(sfx.applause);
   const stats = document.getElementById('final-stats');
   stats.textContent = `You finished in ${formatTime(time)} with ${moves} moves (${diff.toUpperCase()}).`;
   startConfetti();
