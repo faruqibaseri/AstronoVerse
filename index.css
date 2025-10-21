@@ -15,7 +15,10 @@
     font-family: 'Android Assassin';
     font-style: normal;
     font-weight: normal;
-    src: url('fonts/AndroidAssassin-grz1.ttf') format('ttf');
+    src: url('fonts/AndroidAssassin-grz1.ttf') format('ttf'),
+         url('fonts/AndroidAssassin-WXXY.ttf') format('ttf'),
+         url('fonts/AndroidAssassinItalic-eDDp.ttf') format('ttf'),
+         url('fonts/AndroidAssassinItalic-odzd.ttf') format('ttf');
     }
 
 .img{
