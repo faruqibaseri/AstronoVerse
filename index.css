@@ -12,13 +12,10 @@
 }
 
     @font-face {
-    font-family: 'Android Assassin';
+    font-family: 'Android Assassin Regular';
     font-style: normal;
     font-weight: normal;
-    src: url('/fonts/AndroidAssassin-grz1.ttf') format('ttf'),
-         url('/fonts/AndroidAssassin-WXXY.ttf') format('ttf'),
-         url('/fonts/AndroidAssassinItalic-eDDp.ttf') format('ttf'),
-         url('/fonts/AndroidAssassinItalic-odzd.ttf') format('ttf');
+    src: url('/fonts/Android\ Assassin.woff') format('woff');
     }
 
 .img{
@@ -226,7 +223,7 @@ body::before {
 .hero__text {position: relative; bottom: 40px;}
 .hero__grid{display:grid; grid-template-columns:1.1fr .9fr; gap:30px; padding:0px 0 28px; margin-left: 100px;}
 .hero__title{font-size:50px; margin:0px 0 10px; line-height: 95px; color: white;}
-.hero__title span{font-family: "Android Assassin"; color:#0031c5 ;font-weight: 400;font-size: 80px; -webkit-text-stroke-width: thin; -webkit-text-stroke-color: white;}
+.hero__title span{font-family: "Android Assassin Regular"; color:#0031c5 ;font-weight: 400;font-size: 80px; -webkit-text-stroke-width: thin; -webkit-text-stroke-color: white;}
 .hero__lead{color:white; margin:0 0 18px; font-size: 15px;}
 .hero__cta {padding-top: 20px;}
 
