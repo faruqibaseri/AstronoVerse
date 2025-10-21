@@ -11,12 +11,16 @@
   --radius:16px;
 }
 
-    @font-face {
-    font-family: 'Android Assassin Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: url('/fonts/Android\ Assassin.woff') format('woff');
-    }
+@import url(https://db.onlinewebfonts.com/c/67565fbce7544c4781ec3480376eb253?family=Android+Assassin);
+@font-face {
+    font-family: "Android Assassin";
+    src: url("https://db.onlinewebfonts.com/t/67565fbce7544c4781ec3480376eb253.eot");
+    src: url("https://db.onlinewebfonts.com/t/67565fbce7544c4781ec3480376eb253.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/67565fbce7544c4781ec3480376eb253.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/67565fbce7544c4781ec3480376eb253.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/67565fbce7544c4781ec3480376eb253.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/67565fbce7544c4781ec3480376eb253.svg#Android Assassin")format("svg");
+}
 
 .img{
   background-size: 100%;
@@ -223,7 +227,7 @@ body::before {
 .hero__text {position: relative; bottom: 40px;}
 .hero__grid{display:grid; grid-template-columns:1.1fr .9fr; gap:30px; padding:0px 0 28px; margin-left: 100px;}
 .hero__title{font-size:50px; margin:0px 0 10px; line-height: 95px; color: white;}
-.hero__title span{font-family: "Android Assassin Regular"; color:#0031c5 ;font-weight: 400;font-size: 80px; -webkit-text-stroke-width: thin; -webkit-text-stroke-color: white;}
+.hero__title span{font-family: "Android Assassin"; color:#0031c5 ;font-weight: 400;font-size: 80px; -webkit-text-stroke-width: thin; -webkit-text-stroke-color: white;}
 .hero__lead{color:white; margin:0 0 18px; font-size: 15px;}
 .hero__cta {padding-top: 20px;}
 
