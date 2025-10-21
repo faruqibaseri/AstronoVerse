@@ -524,7 +524,6 @@ align-content: center;
       top: auto;
       
       height: auto; /* Important: reset fixed height for content flow */
-      margin-top: 40px;
       padding: 0 20px 15px 20px; /* Padding for scroll visibility */
       gap: 15px; /* Spacing between cards */
     }
@@ -564,7 +563,6 @@ align-content: center;
   @media (max-width: 480px) {
     .gallery-assembly {
       height: auto; 
-      margin-top: 30px;
       padding: 0 15px 15px 15px;
     }
     .gallery-item {
@@ -595,15 +593,12 @@ align-content: center;
   }
 
   @media (max-width: 902px){
-  /* FIX: Hide video and show mobile background image */
   #bg-video {
     display: none;
   }
   
   .hero__bg-media {
-    /* Apply image from data-mobile-src path */
     background: url("1. HOMEPAGE/photo/background.webp") no-repeat center center / cover;
-    /* Ensure proper positioning for the image */
     position: absolute;
     top: 0;
     left: 0;
