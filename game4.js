@@ -131,6 +131,12 @@ const sfx = {
   click:   document.getElementById('sfx-click'),
   applause: document.getElementById('sfx-applause'),
   finished: document.getElementById('sfx-finished'),
+  start: document.getElementById('sfx-start'),
+  next: document.getElementById('sfx-next'),
+  prev: document.getElementById('sfx-prev'),
+  check: document.getElementById('sfx-check'),
+  flip: document.getElementById('sfx-flip'),
+  drop: document.getElementById('sfx-drop'),
 };
 let soundOn = true;
 
@@ -210,7 +216,7 @@ function renderLevel(idx){
     d.addEventListener('dragstart', (e)=>{
       e.dataTransfer.setData('text/plain', choiceText);
       setTimeout(()=> d.classList.add('dragging'), 0);
-      playSfx(sfx.click);
+      playSfx(sfx.flip);
     });
     d.addEventListener('dragend', ()=> d.classList.remove('dragging'));
 
@@ -272,7 +278,7 @@ function handleDropToBlank(blankEl, value){
   // remove one matching choice from tray (first match)
   const match = Array.from(choicesEl.children).find(c=> c.dataset.value === value);
   if(match) match.remove();
-  playSfx(sfx.click);
+  playSfx(sfx.drop);
 }
 
 /* ---------- Check answers ---------- */
@@ -532,13 +538,13 @@ document.querySelectorAll('[data-target]').forEach(btn=>{
 document.querySelectorAll('.nav-btn[data-target]').forEach(btn=> btn.addEventListener('click', ()=> playSfx(sfx.click)));
 
 // start
-btnStart.addEventListener('click', ()=> { playSfx(sfx.click); startGame(); });
+btnStart.addEventListener('click', ()=> { playSfx(sfx.start); startGame(); });
 btnStart2 && btnStart2.addEventListener('click', ()=> { playSfx(sfx.click); startGame(); });
 
 // prev/next/check
-btnPrev.addEventListener('click', ()=> { playSfx(sfx.click); prevLevel(); });
-btnNext.addEventListener('click', ()=> { playSfx(sfx.click); nextLevel(); });
-btnCheck.addEventListener('click', ()=> { playSfx(sfx.click); checkAnswers(); });
+btnPrev.addEventListener('click', ()=> { playSfx(sfx.prev); prevLevel(); });
+btnNext.addEventListener('click', ()=> { playSfx(sfx.next); nextLevel(); });
+btnCheck.addEventListener('click', ()=> { playSfx(sfx.check); checkAnswers(); });
 
 // play again
 btnPlayAgain.addEventListener('click', ()=> { playSfx(sfx.click); startGame(); });

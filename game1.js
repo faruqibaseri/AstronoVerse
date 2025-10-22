@@ -124,6 +124,9 @@ const sfx = {
   click:   document.getElementById('sfx-click'),
   applause: document.getElementById('applause-sound'),
   finished: document.getElementById('game-finished'),
+  next: document.getElementById('sfx-next'),
+  prev: document.getElementById('sfx-prev'),
+  start: document.getElementById('sfx-start'),
 };
 let soundOn = true;
 
@@ -414,12 +417,12 @@ document.querySelectorAll('.nav-btn[data-target]').forEach(btn=>{
 });
 
 // Start buttons
-document.getElementById('btn-start').addEventListener('click', ()=>{ playSfx(sfx.click); startQuiz(); });
-document.getElementById('btn-start-2').addEventListener('click', ()=>{ playSfx(sfx.click); startQuiz(); });
+document.getElementById('btn-start').addEventListener('click', ()=>{ playSfx(sfx.start); startQuiz(); });
+document.getElementById('btn-start-2').addEventListener('click', ()=>{ playSfx(sfx.start); startQuiz(); });
 
 // Prev/Next
-document.getElementById('btn-next').addEventListener('click', ()=>{ playSfx(sfx.click); nextQuestion(); });
-document.getElementById('btn-prev').addEventListener('click', ()=>{ playSfx(sfx.click); prevQuestion(); });
+document.getElementById('btn-next').addEventListener('click', ()=>{ playSfx(sfx.next); nextQuestion(); });
+document.getElementById('btn-prev').addEventListener('click', ()=>{ playSfx(sfx.prev); prevQuestion(); });
 
 // Retry
 document.getElementById('btn-retry').addEventListener('click', ()=>{ playSfx(sfx.click); startQuiz(); stopGameFinishedSound(); stopConfetti(); stopApplauseSound});
