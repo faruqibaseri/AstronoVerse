@@ -144,9 +144,9 @@ document.querySelectorAll('[data-screen]').forEach(btn=>{
 
 /* ====== Game Data ====== */
 const WORDS_BASE = [
-  "SUN","MOON","STAR","STARS","ORBIT","COMET",
-  "PLANET","GALAXY","NEBULA","ECLIPSE","ASTRO","LIGHT",
-  "SOLAR","LUNAR","AURORA","COSMOS"
+  "CELESTIAL","CRESCENT","GRAVITY","ECLIPSE","MANAZIL","SPHERICAL",
+  "AXIS","ORBIT","HEAT","HELIUM","ASTRO","LIGHT",
+  "SOLAR","LUNAR","NEUTRON","QUASARS"
 ];
 
 const LEVELS = {

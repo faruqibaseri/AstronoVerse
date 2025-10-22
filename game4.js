@@ -144,28 +144,28 @@ let soundOn = true;
 /* blanks array = correct answers in order; sentenceTemplate includes placeholders {0}, {1}, ... */
 const LEVELS = [
   {
-    title: "Basics — Sun & Moon",
-    sentenceTemplate: "The {0} is the center of our solar system. The {1} shines at night and reflects light.",
-    blanks: ["Sun","Moon"],
-    choices: ["Sun","Moon","Earth","Jupiter","Comet","Star"]
+    title: "Sun - The Sun and Modern Science",
+    sentenceTemplate: "The Sun is a medium-sized {0} that acts as the main source of {1} and {2} for the Earth.",
+    blanks: ["star","energy","light"],
+    choices: ["star","energy","light","moon","comet","asteroid"]
   },
   {
-    title: "Stars & Moon",
-    sentenceTemplate: "At night we see many {0}. Sometimes the {1} orbits the {2}.",
-    blanks: ["Stars","Moon","Earth"],
-    choices: ["Stars","Moon","Earth","Mars","Sun","Galaxy","Meteor"]
+    title: "Moon - Phases of the Moon",
+    sentenceTemplate: "Allah SWT has set {0} specific stations (manāzil) for the {1} orbit, as mentioned in Tafsir Munir.",
+    blanks: ["28","Moon's"],
+    choices: ["28","Moon's","24","Sun's","leap","360"]
   },
   {
-    title: "Orbital facts",
-    sentenceTemplate: "One full orbit of Earth around the {0} takes about {1} days.",
-    blanks: ["Sun","365"],
-    choices: ["365","30","Sun","Moon","24","Leap"]
+    title: "Sun - The Sun and Modern Science",
+    sentenceTemplate: "The process that converts {0} to {1} in the Sun's core generates its {2}.",
+    blanks: ["Hydrogen","Helium","energy"],
+    choices: ["Hydrogen","Helium","energy","planet","Earth","galaxy"]
   },
   {
-    title: "Mixed space",
-    sentenceTemplate: "A {0} often has a long tail. A {1} is a giant ball of gas that emits light.",
-    blanks: ["Comet","Star"],
-    choices: ["Planet","Comet","Star","Rocket","Moon","Asteroid"]
+    title: "Sun - The Sun as the Determiner of Shadows",
+    sentenceTemplate: "The Earth's orbit is shaped like an {0}, which helps determine the distance from the Sun, the amount of {1} energy, and the change of {2}.",
+    blanks: ["Ellipse","solar","seasons"],
+    choices: ["Ellipse","solar","seasons","meteor","Jupiter","rocket"]
   }
 ];
 
