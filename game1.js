@@ -286,6 +286,7 @@ function tick(){
     opts.forEach(o => o.classList.add('disabled'));
     opts[q.answer].classList.add('correct');
     infoEl.textContent = '⏱️ Time\'s up! Answer: ' + q.options[q.answer] + '. ' + q.info;
+    playSfx(sfx.wrong),
     clearTimer();
   }
 }

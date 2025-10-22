@@ -62,7 +62,7 @@ body::before {
 .btn--primary :hover{transform: translateY(-5px) scale(1.05);}  
 .button-learn{margin-left: auto; margin-right: auto; max-width: 100%; padding-top: 60px;}
 .btn.btn--ghost{margin-left: auto; margin-right: auto; background:#fff; border:1px solid var(--line);}
-.center{display:flex; justify-content:center}
+.center{display:flex;}
 .button-explore {display: grid; margin-left: auto; margin-right: auto;padding-bottom:80px;}
 .games-button{width: 100%;padding-bottom: 45px; text-align: center;}
 
@@ -265,7 +265,7 @@ body::before {
 /* Sections */
 .section{padding:60px 20px}
 .section__title{font-size:clamp(22px,4.2vw,34px); margin:0 0 6px; color: white;}
-.section__lead{color:var(--muted); margin:0 0 12px; color: rgb(242, 242, 242);}
+.section__lead{color:var(--muted); margin:0 0 25px; color: rgb(242, 242, 242);}
 
 /* Cards */
 .card{
@@ -508,6 +508,7 @@ align-content: center;
       grid-template-rows: auto auto;
       padding: 20px 0;
     } 
+    .center {place-content: center;}
     
     .gallery-assembly {
       /* New Horizontal Scrolling Implementation */
@@ -578,6 +579,7 @@ align-content: center;
     }
     .hero__grid{grid-template-columns:1fr; margin-left: 0px;}
     .topbar__inner{width: max-content;}
+    .center {place-content: center;}
   }
 
     @media (max-width: 344px) {
@@ -590,6 +592,7 @@ align-content: center;
   .hero__lead{font-size:15px;}
   .hero__title span{font-size: 35px;}
   .topbar {width: max-content;}
+  .center {place-content: center;}
   }
 
   @media (max-width: 902px){

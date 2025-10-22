@@ -289,7 +289,7 @@ body::before {
 /* 🟢 Extra slow for very small screens */
 @media (max-width: 480px) {
   .gallery-track {
-    animation-duration: 35s; /* extra smooth on small phones */
+    animation-duration: 45s; /* extra smooth on small phones */
   }
 }
 
